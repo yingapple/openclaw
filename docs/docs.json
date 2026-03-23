@@ -465,6 +465,10 @@
       "destination": "/start/hubs"
     },
     {
+      "source": "/recipes",
+      "destination": "/recipes/index"
+    },
+    {
       "source": "/images",
       "destination": "/nodes/images"
     },
@@ -1101,6 +1105,7 @@
               {
                 "group": "Automation",
                 "pages": [
+                  "recipes/index",
                   "automation/hooks",
                   "automation/standing-orders",
                   "automation/cron-jobs",

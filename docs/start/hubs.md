@@ -104,6 +104,7 @@ Use these hubs to discover every page, including deep dives and reference docs t
 
 ## Tools + automation
 
+- [Recipes hub](/recipes)
 - [Tools surface](/tools)
 - [OpenProse](/prose)
 - [CLI reference](/cli)
