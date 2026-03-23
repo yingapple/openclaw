@@ -45,7 +45,7 @@ describe("openai-codex-provider.runtime", () => {
     expect(mocks.ensureGlobalUndiciEnvProxyDispatcher).toHaveBeenCalledOnce();
     expect(mocks.getOAuthApiKey).toHaveBeenCalledOnce();
     expect(mocks.ensureGlobalUndiciEnvProxyDispatcher.mock.invocationCallOrder[0]).toBeLessThan(
-      mocks.getOAuthApiKey.mock.invocationCallOrder[0] ?? Number.POSITIVE_INFINITY,
+      mocks.getOAuthApiKey.mock.invocationCallOrder[0],
     );
   });
 });
