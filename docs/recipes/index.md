@@ -31,7 +31,7 @@ It groups **high-intent OpenClaw workflows** into a few buckets:
   <Card title="OpenClaw for Feishu" href="/recipes/openclaw-for-feishu" icon="messages-square">
     Set up a Feishu/Lark bot, pair it with your gateway, and use OpenClaw inside team chat.
   </Card>
-  <Card title="OpenClaw for Telegram" href="/channels/telegram" icon="send">
+  <Card title="OpenClaw for Telegram" href="/recipes/openclaw-for-telegram" icon="send">
     Connect a Telegram bot for fast mobile access, group routing, and topic-based workflows.
   </Card>
   <Card title="Cron jobs and recurring automations" href="/automation/cron-jobs" icon="clock-3">
@@ -108,7 +108,7 @@ These are the first recipe pages worth building out from this hub:
 
 - Recipes Hub ✅
 - OpenClaw for Feishu
-- OpenClaw for Telegram
+- OpenClaw for Telegram ✅
 - Send Vercel Deployment Alerts with OpenClaw
 - GitHub PR Summary Bot with OpenClaw
 - OpenClaw Daily Executive Brief for Founders
