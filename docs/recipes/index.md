@@ -43,8 +43,8 @@ It groups **high-intent OpenClaw workflows** into a few buckets:
   <Card title="Webhooks and event-driven flows" href="/automation/hooks" icon="webhook">
     Trigger OpenClaw from external systems when deployments, PRs, or incidents happen.
   </Card>
-  <Card title="Channel troubleshooting" href="/channels/troubleshooting" icon="wrench">
-    Repair common message delivery, auth, and group-policy problems across chat platforms.
+  <Card title="OpenClaw Cron Not Running" href="/recipes/openclaw-cron-not-running" icon="alarm-clock-off">
+    Troubleshoot the highest-friction scheduler failure: jobs that do not fire, deliver, or run at the right time.
   </Card>
   <Card title="Gateway troubleshooting" href="/gateway/troubleshooting" icon="shield-alert">
     Diagnose gateway startup, config, network, and service-management failures.
@@ -112,7 +112,7 @@ These are the first recipe pages worth building out from this hub:
 - Send Vercel Deployment Alerts with OpenClaw
 - GitHub PR Summary Bot with OpenClaw
 - OpenClaw Daily Executive Brief for Founders
-- OpenClaw Cron Not Running
+- OpenClaw Cron Not Running ✅
 - AI Executive Assistant for Founders
 
 ## Where to go next
