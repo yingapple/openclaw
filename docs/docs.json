@@ -1106,6 +1106,7 @@
                 "group": "Automation",
                 "pages": [
                   "recipes/index",
+                  "recipes/openclaw-for-feishu",
                   "automation/hooks",
                   "automation/standing-orders",
                   "automation/cron-jobs",

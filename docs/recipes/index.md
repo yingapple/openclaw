@@ -28,7 +28,7 @@ It groups **high-intent OpenClaw workflows** into a few buckets:
 ## Start with the highest-leverage recipes
 
 <Columns>
-  <Card title="OpenClaw for Feishu" href="/channels/feishu" icon="messages-square">
+  <Card title="OpenClaw for Feishu" href="/recipes/openclaw-for-feishu" icon="messages-square">
     Set up a Feishu/Lark bot, pair it with your gateway, and use OpenClaw inside team chat.
   </Card>
   <Card title="OpenClaw for Telegram" href="/channels/telegram" icon="send">
