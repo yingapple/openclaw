@@ -53,6 +53,12 @@ jobs:
           install-bun: "false"
           use-sticky-disk: "false"
 
+      - name: Select Xcode 26.1
+        run: |
+          sudo xcode-select -s /Applications/Xcode_26.1.app
+          xcodebuild -version
+          swift --version
+
       - name: Ensure matching GitHub release exists
         env:
           GH_TOKEN: ${{ github.token }}
@@ -160,6 +166,12 @@ jobs:
           pnpm-version: ${{ env.PNPM_VERSION }}
           install-bun: "false"
           use-sticky-disk: "false"
+
+      - name: Select Xcode 26.1
+        run: |
+          sudo xcode-select -s /Applications/Xcode_26.1.app
+          xcodebuild -version
+          swift --version
 
       - name: Ensure matching GitHub release exists
         env:
