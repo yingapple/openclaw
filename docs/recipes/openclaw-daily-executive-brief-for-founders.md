@@ -171,6 +171,71 @@ Use a timezone that matches the founder's day, not the server's default timezone
 
 Reference: [Cron jobs and recurring automations](/automation/cron-jobs)
 
+### A minimal founder-brief config that is actually shippable
+
+A lot of daily-brief docs stop at strategy language.
+That is not enough when someone wants to launch this week.
+
+A credible v1 usually needs three concrete decisions written down:
+
+1. **when** the brief runs
+2. **where** it delivers
+3. **what** the prompt is allowed to summarize
+
+A practical starting shape looks like this:
+
+```json5
+{
+  cron: {
+    jobs: [
+      {
+        id: "daily-founder-brief",
+        schedule: "30 8 * * 1-5",
+        timezone: "Asia/Shanghai",
+        enabled: true,
+        prompt: `Prepare the founder's daily executive brief.
+
+Prioritize:
+1. critical blockers, incidents, or deadlines
+2. meaningful product / engineering movement
+3. repeated customer signal
+4. today's calendar constraints
+5. exactly 3 recommended actions
+
+Keep it concise. Prefer signal over completeness.`,
+        deliver: {
+          channel: "feishu",
+          to: "user:ou_xxx"
+        }
+      }
+    ]
+  }
+}
+```
+
+That example is intentionally boring.
+That is a feature.
+
+For a founder brief, **predictability beats cleverness**:
+
+- fixed send time beats dynamic timing
+- fixed recipient beats drifting "last active" routing
+- fixed output shape beats creative but inconsistent summaries
+
+If you deliver in Telegram instead, the equivalent target could look like:
+
+```json5
+{
+  deliver: {
+    channel: "telegram",
+    to: "123456789"
+  }
+}
+```
+
+If your exact cron schema differs by deployment style, keep the design intent the same:
+**one stable schedule, one stable recipient, one stable summary contract.**
+
 ### 2. One clear prompt contract
 
 Your brief prompt should explicitly tell OpenClaw:
@@ -253,6 +318,86 @@ That prompt is intentionally opinionated.
 
 The goal is not an exhaustive company log.
 The goal is better founder attention allocation.
+
+## A 7-day rollout path that keeps trust high
+
+If you want this brief live fast without turning it into a noisy mess, use this order:
+
+### Day 1: lock delivery and timezone
+
+- choose **one** destination: founder DM or one leadership room
+- set the real business timezone explicitly
+- send one manual dry run before the first scheduled run
+
+### Day 2: ship the brief with only 3 to 5 inputs
+
+Good v1 candidates:
+
+- overnight deploy movement
+- important PR movement
+- calendar pressure
+- one customer-risk signal
+- one hand-curated operating note
+
+### Day 3: tune for readability, not coverage
+
+Ask one question only:
+
+**Did this help the founder decide what to do today faster?**
+
+If not, cut sections before adding sources.
+
+### Day 4 to Day 5: add one stronger structured signal
+
+Usually the best additions are:
+
+- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+
+### Day 6: verify the failure path
+
+Before calling the workflow production-ready, confirm you can diagnose a miss quickly:
+
+```bash
+openclaw status
+openclaw gateway status
+openclaw cron status
+openclaw cron list
+openclaw logs --follow
+```
+
+If that path is fuzzy, fix it now rather than after the first silent miss.
+
+Use: [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+
+### Day 7: define one escalation rule
+
+A founder brief becomes much more useful when one class of event can bypass the next morning's digest.
+
+Examples:
+
+- production deploy failure -> push immediately
+- contract-risk customer issue -> push immediately
+- routine preview deploy success -> wait for the next brief
+
+That gives the workflow a real operating model instead of a once-a-day summary habit.
+
+## Compare the first founder-facing workflows
+
+If you are choosing what to ship first, use this rule:
+
+| Page | Best when | What it unlocks first |
+| --- | --- | --- |
+| [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | The founder needs one morning orientation loop | A habit-forming daily workflow with low coordination overhead |
+| [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | The buyer needs the bigger product story | A broader narrative that connects chat, briefs, alerts, and follow-up |
+| [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | The immediate pain is deploy visibility | Fast operational signal with very little behavior change |
+| [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | The immediate pain is engineering review noise | Better review coordination and founder-readable engineering movement |
+
+A good rule of thumb:
+
+- ship the **Daily Executive Brief** first when the goal is habit and founder orientation
+- ship **Vercel** or **GitHub PR** first when the goal is compressing one noisy signal stream
+- use **AI Executive Assistant for Founders** when you need the higher-level story that ties them together
 
 ## Where the brief gets its signal
 
