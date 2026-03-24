@@ -52,6 +52,9 @@ It groups **high-intent OpenClaw workflows** into a few buckets:
 </Columns>
 
 <Columns>
+  <Card title="AI Executive Assistant for Founders" href="/recipes/ai-executive-assistant-for-founders" icon="briefcase-business">
+    See how OpenClaw combines chat, cron, PR summaries, and deploy alerts into a founder-grade executive assistant workflow.
+  </Card>
   <Card title="Gateway troubleshooting" href="/gateway/troubleshooting" icon="shield-alert">
     Diagnose gateway startup, config, network, and service-management failures.
   </Card>
@@ -119,7 +122,7 @@ These are the first recipe pages worth building out from this hub:
 - GitHub PR Summary Bot with OpenClaw ✅
 - OpenClaw Daily Executive Brief for Founders
 - OpenClaw Cron Not Running ✅
-- AI Executive Assistant for Founders
+- AI Executive Assistant for Founders ✅
 
 ## Where to go next
 
