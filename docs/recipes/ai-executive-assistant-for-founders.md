@@ -324,6 +324,42 @@ That is why it works.
 The first win is not "maximum intelligence."
 The first win is **reliable founder orientation with low noise**.
 
+## What to measure in the first 14 days
+
+If this workflow is going to become a real executive-assistant system instead of a docs demo, track a few concrete signals early:
+
+- **brief open / reply behavior** — does the founder actually read or reply to the morning update
+- **actionability rate** — how often the brief contains at least one item the founder acts on the same day
+- **noise complaints** — how often the founder says the assistant is too verbose, too late, or not useful
+- **escalation quality** — whether urgent pushes were timely and decision-relevant instead of merely alarming
+- **reliability** — whether cron and delivery worked consistently across business days
+
+A practical founder-assistant v1 is working when the founder says some version of:
+
+- "I did not have to open five tools this morning."
+- "That was the right level of detail."
+- "Tell me more about item two."
+
+Those are much better indicators than generic usage counts alone.
+
+## A founder-assistant launch checklist
+
+Before you call the workflow live, verify all of these once:
+
+- the founder can receive and reply in the target chat surface
+- the cron schedule uses the founder's real timezone
+- the brief has a clear maximum length
+- at least one live signal source is connected
+- one escalation rule is written down explicitly
+- one fallback / troubleshooting path is documented
+
+Useful companion docs:
+
+- [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+
 ## Example founder-assistant prompt contract
 
 A useful assistant prompt often looks like this:
@@ -387,6 +423,66 @@ Use these pages when reliability slips:
 
 - [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
 - [Automation troubleshooting](/automation/troubleshooting)
+
+## FAQ: common founder-assistant decisions
+
+### Can OpenClaw really act like an AI executive assistant for a founder?
+
+Yes, if you define the role narrowly enough.
+
+OpenClaw is strong at:
+
+- daily orientation
+- structured summaries
+- alert routing
+- follow-up questions in chat
+- recurring operating loops through cron and hooks
+
+It is not automatically a full executive assistant just because it can chat.
+You need the workflow design as well as the tooling.
+
+### Is this better than starting with a dashboard?
+
+Usually yes for the first launch.
+
+A dashboard is useful for deep inspection.
+But the founder's core problem is often **attention allocation**, not lack of screens.
+
+If the founder wants one concise message, one place to ask follow-up questions, and one escalation path, chat-first usually wins early.
+
+### Should founder updates go to DM or a leadership channel?
+
+Start with DM when:
+
+- the updates are personally prioritized for one founder
+- the brief may include incomplete or sensitive judgment
+- you want fast feedback on signal quality before broader rollout
+
+Start with a leadership room when:
+
+- multiple operators need the same operating picture
+- the updates are intended to trigger team coordination immediately
+- you already know the format is trustworthy enough for wider visibility
+
+### How fast can a credible v1 go live?
+
+A credible v1 can often go live after you set up:
+
+- one chat surface
+- one daily brief
+- one signal feed
+- one troubleshooting path
+
+That is much faster than building a bespoke internal assistant product from scratch.
+
+### Does this replace a human executive assistant or chief of staff?
+
+No.
+
+It is best treated as a force multiplier for machine-generated context, routine summaries, and lightweight escalation.
+
+It reduces noise and improves reaction speed.
+It does not replace human judgment, relationship management, or ambiguous cross-functional coordination.
 
 ## Why this page matters in the first wave
 
