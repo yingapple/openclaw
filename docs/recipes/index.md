@@ -40,8 +40,8 @@ It groups **high-intent OpenClaw workflows** into a few buckets:
 </Columns>
 
 <Columns>
-  <Card title="Webhooks and event-driven flows" href="/automation/hooks" icon="webhook">
-    Trigger OpenClaw from external systems when deployments, PRs, or incidents happen.
+  <Card title="Send Vercel Deployment Alerts with OpenClaw" href="/recipes/send-vercel-deployment-alerts-with-openclaw" icon="rocket">
+    Turn raw Vercel deployment events into concise, readable alerts delivered to the team chat that actually matters.
   </Card>
   <Card title="OpenClaw Cron Not Running" href="/recipes/openclaw-cron-not-running" icon="alarm-clock-off">
     Troubleshoot the highest-friction scheduler failure: jobs that do not fire, deliver, or run at the right time.
@@ -109,7 +109,7 @@ These are the first recipe pages worth building out from this hub:
 - Recipes Hub ✅
 - OpenClaw for Feishu
 - OpenClaw for Telegram ✅
-- Send Vercel Deployment Alerts with OpenClaw
+- Send Vercel Deployment Alerts with OpenClaw ✅
 - GitHub PR Summary Bot with OpenClaw
 - OpenClaw Daily Executive Brief for Founders
 - OpenClaw Cron Not Running ✅

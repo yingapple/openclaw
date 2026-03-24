@@ -1107,6 +1107,8 @@
                 "pages": [
                   "recipes/index",
                   "recipes/openclaw-for-feishu",
+                  "recipes/openclaw-for-telegram",
+                  "recipes/send-vercel-deployment-alerts-with-openclaw",
                   "recipes/openclaw-cron-not-running",
                   "automation/hooks",
                   "automation/standing-orders",
