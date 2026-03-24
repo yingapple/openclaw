@@ -60,6 +60,45 @@ It groups **high-intent OpenClaw workflows** into a few buckets:
   </Card>
 </Columns>
 
+## First-wave launch pack: the 8 highest-value recipe pages
+
+If you want early value fast, do not scatter attention across twenty docs.
+
+Start with this **first-wave launch pack** instead:
+
+### 1. Recipe hub
+
+- [OpenClaw Recipes](/recipes)
+
+Use this as the routing layer for everyone who lands with a practical question instead of a config question.
+
+### 2. Integrations
+
+- [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
+- [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
+
+These are the fastest paths to putting OpenClaw inside a chat surface people already check every day.
+
+### 3. Alerting and automation
+
+- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+- [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+
+These pages convert raw engineering and operator signal into useful chat-native summaries.
+
+### 4. Troubleshooting
+
+- [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+
+This is the recovery path that keeps scheduled workflows trustworthy instead of brittle.
+
+### 5. Role-based use case
+
+- [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)
+
+This is the buyer-language page that ties the other pages together into one founder-facing workflow.
+
 ## What to build first
 
 If you want early value fast, these are the best first OpenClaw workflows to launch:
@@ -68,8 +107,9 @@ If you want early value fast, these are the best first OpenClaw workflows to lau
 2. **One scheduled automation** that saves time every day
 3. **One alerting workflow** that turns noisy system events into useful summaries
 4. **A troubleshooting playbook** so setup friction does not stall adoption
+5. **One role-based page** that explains the whole workflow in buyer language
 
-That is why the first wave of recipe pages focuses on **Feishu**, **Telegram**, **deployment alerts**, **PR summaries**, **daily executive briefs**, and **cron troubleshooting**.
+That is why the first wave of recipe pages focuses on **Feishu**, **Telegram**, **deployment alerts**, **PR summaries**, **daily executive briefs**, **cron troubleshooting**, and **founder assistant** positioning.
 
 ## Recipe categories
 
@@ -111,18 +151,21 @@ Today, the strongest early use cases are:
 - operators who want scheduled checks and escalation flows
 - developers who want an always-available assistant across mobile and desktop channels
 
-## In-progress high-value pages
+## First-wave page status
 
-These are the first recipe pages worth building out from this hub:
+These are the first 8 high-value traffic pages this hub is designed to support:
 
 - Recipes Hub ✅
-- OpenClaw for Feishu
+- OpenClaw for Feishu ✅
 - OpenClaw for Telegram ✅
 - Send Vercel Deployment Alerts with OpenClaw ✅
 - GitHub PR Summary Bot with OpenClaw ✅
-- OpenClaw Daily Executive Brief for Founders
+- OpenClaw Daily Executive Brief for Founders ✅
 - OpenClaw Cron Not Running ✅
 - AI Executive Assistant for Founders ✅
+
+The next job is not inventing more pages too early.
+It is strengthening internal links, examples, schema, and distribution around this first batch.
 
 ## Where to go next
 
