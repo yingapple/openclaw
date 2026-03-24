@@ -41,6 +41,14 @@ That usually tells you whether the problem is:
 - **delivery configured incorrectly**
 - **timezone or active-hours mismatch**
 
+## Three easy things to misread
+
+Before you go deeper, keep these in mind:
+
+1. `openclaw cron run <jobId>` **queues** a manual run. It does not wait for the job to finish. A successful response means “enqueued”, not “delivered”. Follow it with `openclaw cron runs --id <jobId>`.
+2. The real persisted state usually lives at `~/.openclaw/cron/jobs.json` and `~/.openclaw/cron/runs/<jobId>.jsonl`. If you are debugging the wrong host or wrong home directory, you can think cron is broken when you are just looking in the wrong place.
+3. If your jobs were created on an older OpenClaw version, the fastest fix is often `openclaw doctor --fix`, which can normalize legacy cron store fields before the scheduler keeps tripping over them.
+
 ## What “healthy” looks like
 
 A healthy cron setup usually has all of these signals:
@@ -106,6 +114,17 @@ openclaw doctor
 
 If the gateway is unstable, treat that as the primary incident first.
 
+#### 5. You are testing with `cron run` and assuming silence means failure
+
+Manual execution is easy to misread.
+
+```bash
+openclaw cron run <jobId>
+openclaw cron runs --id <jobId> --limit 20
+```
+
+A good `cron run` response only proves the run was **accepted and queued**. The actual success or failure shows up later in run history and logs.
+
 ## Case 2: Cron fired but no message was delivered
 
 This is the second most common failure pattern.
@@ -154,6 +173,15 @@ Start with:
 A job can run successfully yet skip or misroute outbound delivery if `channel`, `to`, or equivalent targeting fields are wrong.
 
 When debugging, do not just ask “did cron run?” Ask **“where was it supposed to deliver?”**
+
+#### 4. The job is internally healthy, but you are reading the wrong evidence
+
+If you want the ground truth, inspect the cron store and run log location on the gateway host:
+
+- `~/.openclaw/cron/jobs.json`
+- `~/.openclaw/cron/runs/<jobId>.jsonl`
+
+These files tell you whether the job exists, whether recent runs were appended, and whether you are actually looking at the same machine/home directory the gateway is using.
 
 ## Case 3: Cron runs at the wrong time
 
@@ -258,6 +286,16 @@ If the timing is wrong rather than the execution itself, verify:
 - gateway host timezone
 - explicit cron timezone settings
 - any related `activeHours` timezone assumptions
+
+### Step 6: repair legacy job shapes before doing anything fancier
+
+If the job was created on an older OpenClaw build, run:
+
+```bash
+openclaw doctor --fix
+```
+
+Doctor can normalize legacy cron store fields in `~/.openclaw/cron/jobs.json` before the scheduler has to auto-normalize them at runtime.
 
 ## Common root causes in plain English
 
