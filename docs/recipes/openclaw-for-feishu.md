@@ -30,7 +30,7 @@ OpenClaw for Feishu is a strong fit if you want to:
 - keep internal automation inside Feishu instead of building a custom dashboard first
 - trigger proactive workflows from cron jobs, webhooks, or message events
 
-If your team primarily lives in Telegram instead, see [OpenClaw for Telegram](/channels/telegram).
+If your team primarily lives in Telegram instead, see [OpenClaw for Telegram](/recipes/openclaw-for-telegram).
 
 ## What you get after setup
 
@@ -40,6 +40,13 @@ After a clean setup, you will have:
 2. pairing-based DM access control by default
 3. optional group-chat access with mention gating
 4. a reliable place to deliver alerts, summaries, and recurring reports
+
+That matters because **OpenClaw for Feishu** is not just "another bot integration."
+It is often the shortest path to three high-value production workflows:
+
+- a founder or operator daily brief in Feishu DM
+- deploy alerts summarized into one team room instead of raw webhook spam
+- GitHub PR summaries delivered where reviewers already talk
 
 <CardGroup cols={3}>
   <Card title="Feishu channel reference" icon="book-open" href="/channels/feishu">
@@ -144,9 +151,20 @@ openclaw pairing approve feishu <CODE>
 
 Once approved, the DM becomes your first verified OpenClaw control surface inside Feishu.
 
-## Recommended first workflows in Feishu
+## What to build first after Feishu is live
 
 The point of this integration is not just "bot online". It is getting one useful loop into a chat your team already watches.
+
+If you are deciding what to launch immediately after setup, use this rule:
+
+- choose **daily brief** if the main buyer is a founder or operator
+- choose **deploy alerts** if the main pain is production visibility
+- choose **PR summaries** if the main pain is review coordination and GitHub noise
+
+That sequencing matters because most teams do **not** need five automations on day one.
+They need one automation that proves OpenClaw belongs in Feishu.
+
+## Recommended first workflows in Feishu
 
 ### 1. Founder daily executive brief
 
@@ -204,6 +222,25 @@ Best paired docs:
 
 - [Cron jobs](/automation/cron-jobs)
 - [Automation troubleshooting](/automation/troubleshooting)
+
+## Feishu vs Telegram: which integration should you start with?
+
+Both are strong first-wave integrations, but they solve slightly different rollout problems.
+
+Start with **Feishu** when:
+
+- your team already runs internal ops in Feishu / Lark
+- you want one internal room for founder, ops, and engineering coordination
+- you care more about company-chat adoption than mobile-first personal access
+- you want deployment alerts, PR summaries, or daily briefs to land in the same work chat people already monitor
+
+Start with [OpenClaw for Telegram](/recipes/openclaw-for-telegram) when:
+
+- the owner is mobile-first and wants OpenClaw reachable everywhere
+- the team already uses Telegram groups or topics for operations
+- you want a lighter-weight external or cross-team control surface
+
+In practice, **Feishu is usually the better first integration for internal team activation**, while Telegram is often the better first integration for mobile-first founder access.
 
 ## Group chat rollout advice
 
@@ -422,11 +459,39 @@ Compared with building a custom internal tool first, OpenClaw for Feishu has thr
 
 That makes it a strong first page and a strong first deployment.
 
+## FAQ: common decisions before you ship this internally
+
+### Should I start with Feishu DM or a group chat?
+
+Start with **DM first**.
+That gives you a safe place to verify pairing, prompt quality, and response style before the bot speaks in a shared room.
+
+### Should founder updates go to DM or a team room?
+
+Use **DM** for high-trust executive briefs.
+Use a **team room** for PR summaries, deployment alerts, and recurring operational updates that multiple people should see.
+
+### Do I need to expose a public webhook URL for Feishu?
+
+Not for basic message receiving if you use **long connection** correctly.
+That is one reason Feishu can be a very convenient first integration.
+
+### What is the best first automation after setup?
+
+Pick the one that matches the sharpest pain:
+
+- visibility problem -> [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- review coordination problem -> [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+- founder orientation problem -> [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+
 ## Related next steps
 
 Once Feishu is working, the most natural follow-ups are:
 
 - [OpenClaw Recipes](/recipes)
+- [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
 - [Feishu channel reference](/channels/feishu)
 - [Cron jobs and recurring automations](/automation/cron-jobs)
 - [Webhook automations](/automation/hooks)
