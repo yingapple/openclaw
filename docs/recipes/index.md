@@ -67,6 +67,44 @@ It is designed to route high-intent readers into the **first-wave pages most lik
 
 If you are not sure where to start, use the shortest path that matches your real intent.
 
+## Which OpenClaw page should you open first?
+
+Use this quick decision grid if you arrived with a concrete problem instead of a docs-reading mood.
+
+| If your real question is... | Start here | Why this page first |
+| --- | --- | --- |
+| How do I get OpenClaw into Feishu/Lark fast? | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) | Best first integration for internal teams already living in Feishu. |
+| How do I put OpenClaw in my pocket and run it from mobile? | [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | Fastest path to a mobile-first control surface. |
+| How do I turn raw deploy events into readable alerts? | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | Strongest first webhook/alerting use case for technical teams. |
+| How do I make GitHub review traffic readable in chat? | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | Converts noisy PR events into one useful team-chat stream. |
+| How do I get a founder-grade daily brief every morning? | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | Best first recurring workflow when the buyer is a founder or operator. |
+| Why is my OpenClaw schedule not firing or not delivering? | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Fastest recovery path when trust in automation is at risk. |
+| What does the full founder/operator workflow look like? | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | Connects integrations, cron, alerts, and summaries into one product story. |
+| I want the whole map before choosing | [OpenClaw Recipes](/recipes) | This hub is the entry point for the first-wave traffic pages. |
+
+That table is the core logic behind the first-wave recipe pack: one integration page, one alerting page, one troubleshooting page, and one role-based page usually outperform a pile of disconnected feature docs.
+
+## Why these 8 pages are the first-wave pack
+
+These pages were not chosen at random.
+They cover the five search/activation buckets most likely to create useful traffic and real product adoption:
+
+1. **Recipes hub** — the main routing page that connects all the other intents
+2. **Integrations** — [OpenClaw for Feishu](/recipes/openclaw-for-feishu) and [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
+3. **Alerting / automation** — [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) and [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+4. **Troubleshooting** — [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+5. **Role / use case** — [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) and [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)
+
+That mix matters because it matches how people actually discover products:
+
+- some search for a **channel integration**
+- some search for a **specific workflow**
+- some search when something is **broken**
+- some search from a **job title / buyer intent** angle
+
+If you only build one of those categories, traffic quality stays narrow.
+If you build all five, OpenClaw can meet people at multiple points in the adoption curve.
+
 ### I want OpenClaw inside team chat first
 
 Start with an integration recipe:
