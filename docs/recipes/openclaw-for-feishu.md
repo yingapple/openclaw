@@ -258,6 +258,123 @@ Feishu supports streaming via interactive cards, which is useful when:
 
 See: [Feishu streaming configuration](/channels/feishu#streaming)
 
+## A v1 Feishu rollout that actually ships
+
+A lot of Feishu setup guides stop at **"the bot can reply"**.
+
+That is not enough for a real first deployment.
+
+A strong v1 usually has these properties:
+
+- DMs use pairing instead of being wide open
+- one trusted ops or leadership group is enabled
+- groups require `@mention` at first
+- delivery for recurring briefs or alerts goes to one fixed chat
+- streaming stays on so longer summaries feel alive instead of stalled
+
+A practical starting config looks like this:
+
+```json5
+{
+  channels: {
+    feishu: {
+      enabled: true,
+      dmPolicy: "pairing",
+      groupPolicy: "allowlist",
+      groupAllowFrom: ["oc_ops_room"],
+      streaming: true,
+      groups: {
+        oc_ops_room: {
+          requireMention: true,
+        },
+      },
+      accounts: {
+        default: {
+          appId: "cli_xxx",
+          appSecret: "xxx",
+          botName: "OpenClaw",
+        },
+      },
+    },
+  },
+}
+```
+
+Why this is a good first version:
+
+- it keeps **DM access explicit**
+- it keeps **group rollout narrow**
+- it gives you **one reliable room** for deployment alerts, PR summaries, or a founder brief
+- it avoids the common failure mode of "the bot technically works, but everyone mutes it"
+
+## Best first automations after Feishu is live
+
+Once the Feishu bot is working, do **one** of these next — not all of them at once.
+
+### Option 1: founder daily brief into DM
+
+Best when one founder or operator wants a reliable morning update.
+
+Use:
+
+- [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+- [Cron jobs](/automation/cron-jobs)
+
+### Option 2: PR summaries into one engineering group
+
+Best when the team already reviews work in Feishu and wants less GitHub notification noise.
+
+Use:
+
+- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+- [Webhook automations](/automation/hooks)
+
+### Option 3: deploy alerts into one ops room
+
+Best when the main pain is not code review, but deploy visibility.
+
+Use:
+
+- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [Webhook automations](/automation/hooks)
+
+The key is sequencing.
+
+**Feishu first gives you distribution. One automation after that gives you value.**
+
+## A 7-day rollout path for teams
+
+If you are introducing OpenClaw inside a company that already uses Feishu/Lark, this is a sane first week:
+
+### Day 1: DM-only validation
+
+- connect the bot
+- approve pairing for 1 to 3 internal users
+- confirm replies, memory, and basic commands feel correct
+
+### Day 2: add one trusted group
+
+- add exactly one group
+- keep `requireMention: true`
+- watch whether the bot is helpful or noisy
+
+### Day 3: ship one useful automation
+
+Choose one:
+
+- founder daily brief
+- deploy alerts
+- PR summaries
+
+### Day 4 to Day 7: tune before expanding
+
+- refine prompts
+- tighten delivery targets
+- add sender or group allowlists if needed
+- only then consider opening more rooms or more workflows
+
+This rollout order sounds conservative, but it is usually faster overall because it avoids cleanup after an overly broad launch.
+
 ## Troubleshooting: the failures that actually matter
 
 ### The bot does not receive messages
