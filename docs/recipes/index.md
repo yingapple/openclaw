@@ -1,9 +1,10 @@
 ---
-summary: "OpenClaw recipe hub for integrations, automations, and operator playbooks"
+summary: "OpenClaw recipe hub for integrations, automations, troubleshooting, and founder/operator workflows"
 read_when:
   - You want opinionated how-to recipes instead of raw reference docs
   - You are deciding which OpenClaw workflow to build first
-  - You want channel, automation, or troubleshooting examples
+  - You want channel, automation, troubleshooting, or founder/operator examples
+  - You want one page that routes you to the highest-value OpenClaw use case fast
 title: "OpenClaw Recipes"
 ---
 
@@ -11,105 +12,163 @@ title: "OpenClaw Recipes"
 
 OpenClaw has deep reference docs, but many people land with a more practical question:
 
-- "How do I set this up for my team?"
-- "What can I automate first?"
-- "Which workflow should I ship this week?"
+- "What should I build first?"
+- "Which workflow is highest leverage for my team?"
+- "Where is the page for my exact use case?"
 
 This page is the recipe hub for those answers.
 
-It groups **high-intent OpenClaw workflows** into a few buckets:
+It is designed to route high-intent readers into the **first-wave pages most likely to create real activation**:
 
-- **Integrations**: connect OpenClaw to the channel your team already uses
-- **Automation**: wire alerts, summaries, and scheduled jobs
-- **Troubleshooting**: fix common setup failures fast
-- **Role-based use cases**: founder, operator, or engineering workflows
-- **Next-step references**: jump from a recipe to the underlying docs
+- **Integrations** — get OpenClaw into the chat surface your team already uses
+- **Alerting & automation** — summarize deploys, PRs, and scheduled reports
+- **Troubleshooting** — fix silent failures before trust collapses
+- **Role-based workflows** — explain OpenClaw in buyer language, not just config language
 
 ## Start with the highest-leverage recipes
 
 <Columns>
   <Card title="OpenClaw for Feishu" href="/recipes/openclaw-for-feishu" icon="messages-square">
-    Set up a Feishu/Lark bot, pair it with your gateway, and use OpenClaw inside team chat.
+    Set up a Feishu/Lark bot, pair it with your gateway, and launch your first team-chat workflow.
   </Card>
   <Card title="OpenClaw for Telegram" href="/recipes/openclaw-for-telegram" icon="send">
-    Connect a Telegram bot for fast mobile access, group routing, and topic-based workflows.
+    Put OpenClaw in your pocket with a Telegram bot for mobile access, group routing, and topic-based workflows.
   </Card>
-  <Card title="Cron jobs and recurring automations" href="/automation/cron-jobs" icon="clock-3">
-    Run OpenClaw on a schedule for daily briefs, reminders, summaries, and background ops.
+  <Card title="OpenClaw Daily Executive Brief for Founders" href="/recipes/openclaw-daily-executive-brief-for-founders" icon="newspaper">
+    Ship a founder-grade morning brief that compresses yesterday's signal into one useful message.
   </Card>
 </Columns>
 
 <Columns>
   <Card title="Send Vercel Deployment Alerts with OpenClaw" href="/recipes/send-vercel-deployment-alerts-with-openclaw" icon="rocket">
-    Turn raw Vercel deployment events into concise, readable alerts delivered to the team chat that actually matters.
+    Turn raw Vercel deployment events into concise alerts with clear next-step guidance.
   </Card>
   <Card title="GitHub PR Summary Bot with OpenClaw" href="/recipes/github-pr-summary-bot-with-openclaw" icon="git-pull-request-arrow">
-    Summarize pull requests, review requests, and review activity into crisp chat updates with a clear next owner action.
+    Summarize PR opens, review requests, reviews, and merges into readable team-chat updates.
   </Card>
   <Card title="OpenClaw Cron Not Running" href="/recipes/openclaw-cron-not-running" icon="alarm-clock-off">
-    Troubleshoot the highest-friction scheduler failure: jobs that do not fire, deliver, or run at the right time.
+    Diagnose why scheduled jobs are not firing, not delivering, or running at the wrong time.
   </Card>
 </Columns>
 
 <Columns>
   <Card title="AI Executive Assistant for Founders" href="/recipes/ai-executive-assistant-for-founders" icon="briefcase-business">
-    See how OpenClaw combines chat, cron, PR summaries, and deploy alerts into a founder-grade executive assistant workflow.
+    See how chat, cron, deploy alerts, and PR summaries combine into a founder-facing assistant workflow.
   </Card>
-  <Card title="Gateway troubleshooting" href="/gateway/troubleshooting" icon="shield-alert">
-    Diagnose gateway startup, config, network, and service-management failures.
+  <Card title="Cron jobs and recurring automations" href="/automation/cron-jobs" icon="clock-3">
+    Learn the scheduling primitives behind daily briefs, reminders, summaries, and recurring checks.
+  </Card>
+  <Card title="Webhook automations" href="/automation/hooks" icon="webhook">
+    Connect OpenClaw to deploy systems, GitHub, incidents, and other external event sources.
   </Card>
 </Columns>
 
-## First-wave launch pack: the 8 highest-value recipe pages
+## Choose the right recipe by job to be done
 
-If you want early value fast, do not scatter attention across twenty docs.
+If you are not sure where to start, use the shortest path that matches your real intent.
 
-Start with this **first-wave launch pack** instead:
+### I want OpenClaw inside team chat first
 
-### 1. Recipe hub
+Start with an integration recipe:
 
-- [OpenClaw Recipes](/recipes)
+- [OpenClaw for Feishu](/recipes/openclaw-for-feishu) if your team already runs on Feishu / Lark
+- [OpenClaw for Telegram](/recipes/openclaw-for-telegram) if you want a mobile-first bot with strong group/topic workflows
 
-Use this as the routing layer for everyone who lands with a practical question instead of a config question.
+This is usually the best first move because a working chat surface turns every later automation into something people actually see.
 
-### 2. Integrations
+### I want useful alerts, not raw webhook spam
 
-- [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
-- [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
-
-These are the fastest paths to putting OpenClaw inside a chat surface people already check every day.
-
-### 3. Alerting and automation
+Start with an alerting recipe:
 
 - [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
 - [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+
+These are strong first automations because the event sources already exist. OpenClaw's job is to make them readable and actionable.
+
+### I want a founder or operator daily loop
+
+Start with a role/use-case recipe:
+
 - [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
-
-These pages convert raw engineering and operator signal into useful chat-native summaries.
-
-### 4. Troubleshooting
-
-- [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
-
-This is the recovery path that keeps scheduled workflows trustworthy instead of brittle.
-
-### 5. Role-based use case
-
 - [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)
 
-This is the buyer-language page that ties the other pages together into one founder-facing workflow.
+The daily brief is usually the first habit-forming workflow.
+The executive-assistant page is the broader product story that ties the stack together.
 
-## What to build first
+### I already tried scheduling and it seems broken
 
-If you want early value fast, these are the best first OpenClaw workflows to launch:
+Start with troubleshooting:
 
-1. **A chat integration** so you can reach your agent from where you already work
-2. **One scheduled automation** that saves time every day
-3. **One alerting workflow** that turns noisy system events into useful summaries
-4. **A troubleshooting playbook** so setup friction does not stall adoption
-5. **One role-based page** that explains the whole workflow in buyer language
+- [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+- [Gateway troubleshooting](/gateway/troubleshooting)
+- [Automation troubleshooting](/automation/troubleshooting)
 
-That is why the first wave of recipe pages focuses on **Feishu**, **Telegram**, **deployment alerts**, **PR summaries**, **daily executive briefs**, **cron troubleshooting**, and **founder assistant** positioning.
+This is the recovery path that keeps cron-based workflows trustworthy instead of brittle.
+
+## Fastest starting point by team shape
+
+### Feishu-first teams
+
+Use this sequence:
+
+1. [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
+2. [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) or [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+3. [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) as the fallback path
+
+Best for:
+
+- China-based teams
+- ops-heavy groups already living in Feishu
+- founders who want one internal control surface first
+
+### Telegram-first teams
+
+Use this sequence:
+
+1. [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
+2. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) or [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+3. [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) when scheduled workflows need debugging
+
+Best for:
+
+- mobile-first founders or operators
+- lean technical teams
+- teams that want topic-based routing without building a dashboard
+
+### Founder-assistant rollout
+
+Use this sequence:
+
+1. [OpenClaw for Feishu](/recipes/openclaw-for-feishu) or [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
+2. [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+3. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+4. [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+5. [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)
+
+This is the cleanest path from “chat bot” to “high-trust executive assistant workflow.”
+
+## What to build first if you only have one week
+
+If you want early value fast, do not scatter attention across twenty docs or ten automations.
+
+Use this order:
+
+1. **One chat integration** so OpenClaw is reachable where people already work
+2. **One daily or recurring workflow** so value compounds automatically
+3. **One structured alerting flow** so noisy operational events become useful summaries
+4. **One troubleshooting path** so silent failures do not destroy trust
+5. **One role-based page** so buyers understand the whole system in human terms
+
+That is why the first-wave recipe pack focuses on exactly these pages:
+
+- [OpenClaw Recipes](/recipes)
+- [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
+- [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
+- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+- [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+- [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+- [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)
 
 ## Recipe categories
 
@@ -117,43 +176,43 @@ That is why the first wave of recipe pages focuses on **Feishu**, **Telegram**, 
 
 Use these when the main question is **"Can OpenClaw live inside the tools we already use?"**
 
-- [Feishu bot](/channels/feishu)
-- [Telegram bot](/channels/telegram)
-- [Discord bot](/channels/discord)
-- [Slack bot](/channels/slack)
+- [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
+- [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
+- [Feishu channel reference](/channels/feishu)
+- [Telegram channel reference](/channels/telegram)
 
-### Automation
+### Alerting and automation
 
 Use these when the main question is **"Can OpenClaw watch, summarize, and notify for us?"**
 
-- [Cron jobs](/automation/cron-jobs)
+- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+- [Cron jobs and recurring automations](/automation/cron-jobs)
 - [Webhook automations](/automation/hooks)
-- [Polls and proactive prompts](/automation/poll)
-- [Gmail Pub/Sub](/automation/gmail-pubsub)
 
 ### Troubleshooting
 
 Use these when the main question is **"Why is this not running the way I expect?"**
 
+- [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
 - [Automation troubleshooting](/automation/troubleshooting)
 - [Channel troubleshooting](/channels/troubleshooting)
 - [Gateway troubleshooting](/gateway/troubleshooting)
-- [Node troubleshooting](/nodes/troubleshooting)
 
 ### Role-based use cases
 
 Use these when the main question is **"What does OpenClaw do for someone like me?"**
 
-Today, the strongest early use cases are:
+The strongest first-wave pages today are:
 
-- founders who want a daily executive brief
-- engineering leads who want GitHub and deployment summaries in chat
-- operators who want scheduled checks and escalation flows
-- developers who want an always-available assistant across mobile and desktop channels
+- [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+- [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)
+
+These pages matter because they translate features into a concrete workflow someone will actually buy, try, and keep.
 
 ## First-wave page status
 
-These are the first 8 high-value traffic pages this hub is designed to support:
+These are the 8 high-value traffic pages this hub is designed to support:
 
 - Recipes Hub ✅
 - OpenClaw for Feishu ✅
@@ -164,12 +223,12 @@ These are the first 8 high-value traffic pages this hub is designed to support:
 - OpenClaw Cron Not Running ✅
 - AI Executive Assistant for Founders ✅
 
-The next job is not inventing more pages too early.
-It is strengthening internal links, examples, schema, and distribution around this first batch.
+The next job is not spraying out more pages too early.
+It is making this first batch easier to discover, easier to navigate, and easier to trust.
 
 ## Where to go next
 
 - New to the product: [Getting Started](/start/getting-started)
-- Want the whole map: [Docs hubs](/start/hubs)
+- Want the whole docs map: [Docs hubs](/start/hubs)
 - Need config details: [Gateway configuration](/gateway/configuration)
-- Want more examples later: bookmark this page — it is the entry point for future recipe-style docs
+- Want more workflow examples later: bookmark this page — it is the entry point for future recipe-style docs
