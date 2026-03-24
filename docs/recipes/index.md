@@ -43,9 +43,15 @@ It groups **high-intent OpenClaw workflows** into a few buckets:
   <Card title="Send Vercel Deployment Alerts with OpenClaw" href="/recipes/send-vercel-deployment-alerts-with-openclaw" icon="rocket">
     Turn raw Vercel deployment events into concise, readable alerts delivered to the team chat that actually matters.
   </Card>
+  <Card title="GitHub PR Summary Bot with OpenClaw" href="/recipes/github-pr-summary-bot-with-openclaw" icon="git-pull-request-arrow">
+    Summarize pull requests, review requests, and review activity into crisp chat updates with a clear next owner action.
+  </Card>
   <Card title="OpenClaw Cron Not Running" href="/recipes/openclaw-cron-not-running" icon="alarm-clock-off">
     Troubleshoot the highest-friction scheduler failure: jobs that do not fire, deliver, or run at the right time.
   </Card>
+</Columns>
+
+<Columns>
   <Card title="Gateway troubleshooting" href="/gateway/troubleshooting" icon="shield-alert">
     Diagnose gateway startup, config, network, and service-management failures.
   </Card>
@@ -110,7 +116,7 @@ These are the first recipe pages worth building out from this hub:
 - OpenClaw for Feishu
 - OpenClaw for Telegram ✅
 - Send Vercel Deployment Alerts with OpenClaw ✅
-- GitHub PR Summary Bot with OpenClaw
+- GitHub PR Summary Bot with OpenClaw ✅
 - OpenClaw Daily Executive Brief for Founders
 - OpenClaw Cron Not Running ✅
 - AI Executive Assistant for Founders
