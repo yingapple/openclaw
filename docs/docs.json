@@ -1110,6 +1110,7 @@
                   "recipes/openclaw-for-telegram",
                   "recipes/send-vercel-deployment-alerts-with-openclaw",
                   "recipes/github-pr-summary-bot-with-openclaw",
+                  "recipes/openclaw-daily-executive-brief-for-founders",
                   "recipes/openclaw-cron-not-running",
                   "automation/hooks",
                   "automation/standing-orders",
