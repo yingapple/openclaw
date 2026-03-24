@@ -32,6 +32,24 @@ OpenClaw for Telegram is a strong fit if you want to:
 
 If your team primarily lives in Feishu or Lark instead, see [OpenClaw for Feishu](/recipes/openclaw-for-feishu).
 
+## When Telegram should win over other first-wave starting points
+
+Choose **OpenClaw for Telegram** first when the real requirement is mobility, reachability, or lightweight team rollout.
+
+| If your situation looks like this... | Start with Telegram? | Why |
+| --- | --- | --- |
+| Founder or operator needs OpenClaw on mobile all day | Yes | Telegram is the fastest path to a pocketable control surface without building extra UI. |
+| Team coordinates in Telegram groups or forum topics already | Yes | Topics map cleanly to deploy alerts, PR summaries, incident triage, and ACP-heavy workflows. |
+| Team mainly works in Feishu/Lark during the day | Usually no | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) is the better default when you want internal adoption in the main company chat. |
+| Main problem is silent scheduled jobs, not channel setup | No | Fix reliability first with [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running). |
+| Buyer wants the big founder workflow story, not setup steps | Maybe later | Start here if Telegram is the delivery surface, then graduate to [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders). |
+
+A simple rule of thumb:
+
+- pick **Telegram** when you need **mobile-first access** and lightweight group/topic routing
+- pick **Feishu** when you need **internal team adoption** inside the company chat everyone already watches
+- pick **Cron troubleshooting** when trust is already broken and shipping a new workflow would only amplify the problem
+
 ## What you get after setup
 
 After a clean setup, you will have:
@@ -141,6 +159,16 @@ A good first rollout is:
 ## Recommended first workflows in Telegram
 
 The point is not just making the bot respond. The point is building one tight loop that people actually use.
+
+If you are following the first-wave rollout strategy, the cleanest Telegram expansion path is:
+
+1. **OpenClaw for Telegram** — establish the delivery surface
+2. **[Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)** if your next pain is deploy noise
+3. **[GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)** if your next pain is review coordination
+4. **[OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)** if the owner needs one recurring morning update
+5. **[AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)** when you want the full founder/operator workflow narrative
+
+That sequence matters because **Telegram is usually the distribution layer first, and the higher-value automations compound on top of it**.
 
 ### 1. Founder mobile brief
 
