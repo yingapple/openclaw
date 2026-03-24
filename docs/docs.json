@@ -469,6 +469,10 @@
       "destination": "/recipes/index"
     },
     {
+      "source": "/zh-CN/recipes",
+      "destination": "/zh-CN/recipes/index"
+    },
+    {
       "source": "/images",
       "destination": "/nodes/images"
     },
@@ -1768,6 +1772,8 @@
               {
                 "group": "自动化",
                 "pages": [
+                  "zh-CN/recipes/index",
+                  "zh-CN/recipes/openclaw-for-feishu",
                   "zh-CN/recipes/openclaw-cron-not-running",
                   "zh-CN/automation/hooks",
                   "zh-CN/automation/cron-jobs",
