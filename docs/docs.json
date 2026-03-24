@@ -1774,6 +1774,7 @@
                 "pages": [
                   "zh-CN/recipes/index",
                   "zh-CN/recipes/openclaw-for-feishu",
+                  "zh-CN/recipes/openclaw-for-telegram",
                   "zh-CN/recipes/openclaw-cron-not-running",
                   "zh-CN/automation/hooks",
                   "zh-CN/automation/cron-jobs",
