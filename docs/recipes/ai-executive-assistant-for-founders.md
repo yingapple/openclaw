@@ -243,6 +243,27 @@ In practice, OpenClaw often fits best as:
 - a structured signal layer for an operator or chief of staff
 - a machine-speed filter before a human spends time on follow-up
 
+## Which founder workflow should you start with first?
+
+Not every team searching for an **AI executive assistant for founders** should start from the same place.
+
+This page should usually win when the buyer wants the **whole operating model** explained in one place, not just a setup tutorial for one channel or one webhook.
+
+| If your actual need is... | Start here first? | Why |
+| --- | --- | --- |
+| I want the complete founder/operator workflow in one page | Yes | This page connects chat surface, daily brief, signal feeds, escalation rules, and reliability into one believable system. |
+| I already know the founder wants a recurring morning summary | Maybe later | Start with [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders), then come back here for the bigger product story. |
+| The immediate blocker is getting OpenClaw into the founder's chat tool | Usually no | Start with [OpenClaw for Feishu](/recipes/openclaw-for-feishu) or [OpenClaw for Telegram](/recipes/openclaw-for-telegram) first so the assistant has a real control surface. |
+| The team is drowning in one noisy engineering signal stream | Usually no | Start with [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) or [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) first, then promote that signal into the founder layer. |
+| Scheduled workflows are already unreliable | No | Repair trust first with [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running). |
+
+A simple rule:
+
+- choose **this page first** when the question is **"what does the founder-grade OpenClaw system actually look like?"**
+- choose **a channel page first** when reachability is missing
+- choose **a workflow page first** when one operational pain is already obvious
+- choose **the troubleshooting page first** when trust is broken
+
 ## What a credible v1 should include
 
 If this page is serving serious buyer intent, it should be explicit about what **good enough to trust** looks like.
@@ -256,6 +277,35 @@ A strong founder-assistant v1 usually includes all of the following:
 - **one recovery path** when cron or delivery fails
 
 If any of those are missing, the workflow is still interesting, but it is not yet an executive-assistant system a founder will trust every day.
+
+## The minimum architecture that still feels like an executive assistant
+
+A lot of teams over-design this.
+A credible founder-assistant v1 is usually simpler than people expect.
+
+```text
+Feishu DM or Telegram DM
+  <- founder asks follow-up questions
+  <- scheduled daily brief lands here
+  <- urgent exception alerts land here
+
+OpenClaw gateway
+  <- cron job for morning brief
+  <- webhook summaries for PRs / deploys
+  <- memory + prompt contract for prioritization
+
+Signal sources
+  <- GitHub / Vercel
+  <- calendar / internal chat / support notes
+```
+
+That shape matters because it keeps the system understandable:
+
+- **one chat surface** keeps follow-up friction low
+- **one gateway** keeps automation and conversation in the same operating layer
+- **one small bundle of signal sources** keeps the brief readable instead of sprawling
+
+If your diagram needs six dashboards and three orchestration layers before day one, it is probably not a founder-assistant v1 anymore.
 
 ## Recommended starter stack by founder style
 
