@@ -281,6 +281,141 @@ They let you separate workflows like:
 
 See [Telegram forum topics and thread behavior](/channels/telegram#forum-topics-and-thread-behavior).
 
+## A v1 Telegram rollout that actually ships
+
+A lot of Telegram bot guides stop at **"the bot replies in DM"**.
+
+That is not enough for a real first deployment.
+
+A strong v1 usually has these properties:
+
+- DMs use pairing instead of being open to anyone who finds the bot
+- one trusted group or topic is enabled first
+- mention gating stays on until the prompt and routing quality are stable
+- one fixed delivery destination is chosen for alerts or recurring reports
+- topic routing is used deliberately so deploys, PRs, and ACP-heavy work do not collide
+
+A practical starting config looks like this:
+
+```json5
+{
+  channels: {
+    telegram: {
+      enabled: true,
+      botToken: "${TELEGRAM_BOT_TOKEN}",
+      dmPolicy: "pairing",
+      groupPolicy: "allowlist",
+      groupAllowFrom: ["ops_room"],
+      groups: {
+        ops_room: {
+          requireMention: true,
+        },
+      },
+    },
+  },
+}
+```
+
+Why this is a good first version:
+
+- it keeps **DM access explicit**
+- it keeps **group rollout narrow**
+- it gives you **one reliable destination** for deploy alerts, PR summaries, or recurring reminders
+- it avoids the common failure mode of "the bot technically works, but the team mutes it"
+
+## Best first automations after Telegram is live
+
+Once the Telegram bot is working, do **one** of these next — not all at once.
+
+### Option 1: founder daily brief into DM
+
+Best when one founder or operator wants a reliable mobile-first morning update.
+
+Use:
+
+- [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+- [Cron jobs](/automation/cron-jobs)
+
+### Option 2: PR summaries into one engineering topic
+
+Best when the team already coordinates code review in Telegram and wants less GitHub notification noise.
+
+Use:
+
+- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+- [Webhook automations](/automation/hooks)
+
+### Option 3: deploy alerts into one ops chat or topic
+
+Best when the main pain is production visibility rather than code review.
+
+Use:
+
+- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [Webhook automations](/automation/hooks)
+
+The key is sequencing.
+
+**Telegram first gives you reachability. One automation after that gives you value.**
+
+## A 7-day rollout path for Telegram teams
+
+If you are introducing OpenClaw through Telegram, this is a sane first week:
+
+### Day 1: DM-only validation
+
+- connect the bot
+- approve pairing for 1 to 3 users
+- confirm replies, tone, and basic commands feel right
+
+### Day 2: add one trusted group or topic
+
+- add exactly one team space
+- keep `requireMention: true`
+- verify the bot is helpful instead of noisy
+
+### Day 3: ship one useful automation
+
+Choose one:
+
+- founder daily brief
+- deploy alerts
+- PR summaries
+
+### Day 4 to Day 7: tune before expanding
+
+- refine prompts
+- separate workflows into topics if needed
+- tighten delivery targets
+- only then widen access or add more automations
+
+This rollout order sounds conservative, but it is usually faster overall because it avoids cleanup after a noisy launch.
+
+## FAQ: common decisions before you ship this internally
+
+### Should I start with Telegram DM or a team group?
+
+Start with **DM first**.
+That gives you a safe place to verify pairing, response quality, and escalation style before the bot speaks in a shared chat.
+
+### Should founder updates go to DM or a shared topic?
+
+Use **DM** for high-trust executive briefs.
+Use a **shared group or topic** for PR summaries, deployment alerts, and recurring operational updates multiple people should see.
+
+### Should I disable Privacy Mode immediately?
+
+Usually no.
+Start with Privacy Mode or mention-gated behavior intact, then widen visibility only if you have a clear reason and understand the noise tradeoff.
+
+### What is the best first automation after Telegram setup?
+
+Pick the workflow that matches the sharpest pain:
+
+- visibility problem -> [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- review coordination problem -> [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+- founder orientation problem -> [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+
 ## Troubleshooting: the failures that matter first
 
 ### The bot works in DM but not in groups
