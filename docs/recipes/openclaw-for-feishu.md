@@ -151,6 +151,42 @@ openclaw pairing approve feishu <CODE>
 
 Once approved, the DM becomes your first verified OpenClaw control surface inside Feishu.
 
+## The 30-minute Feishu launch plan
+
+If you want the shortest path from setup to a useful team workflow, use this order.
+
+### Minutes 0 to 10: prove the surface works
+
+- create the Feishu app
+- connect credentials in OpenClaw
+- restart the gateway
+- send one DM to the bot
+- approve pairing and confirm a clean reply
+
+At this point, do **not** widen scope yet.
+Your goal is only to prove that the delivery surface is real.
+
+### Minutes 10 to 20: pick one permanent destination
+
+Choose exactly one place where the first automation will land:
+
+- founder DM for a private executive brief
+- one engineering group for PR summaries
+- one ops room for deploy alerts
+
+That decision matters more than adding multiple automations immediately.
+A fixed destination is how Feishu goes from "bot demo" to "operational surface."
+
+### Minutes 20 to 30: launch one workflow, not three
+
+Pick the sharpest pain:
+
+- **founder orientation** -> [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+- **deploy visibility** -> [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- **review coordination** -> [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+
+If you try to launch all three on day one, Feishu usually becomes noisy before the team trusts it.
+
 ## What to build first after Feishu is live
 
 The point of this integration is not just "bot online". It is getting one useful loop into a chat your team already watches.
@@ -343,6 +379,52 @@ Why this is a good first version:
 - it keeps **group rollout narrow**
 - it gives you **one reliable room** for deployment alerts, PR summaries, or a founder brief
 - it avoids the common failure mode of "the bot technically works, but everyone mutes it"
+
+## Feishu starter stacks by team shape
+
+Use these if the buyer says "we use Feishu" but does not yet know which OpenClaw workflow should come first.
+
+### Founder-led team in Feishu
+
+Start with:
+
+1. [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
+2. [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+3. [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+
+Why this stack first:
+
+- Feishu becomes the founder's reliable control surface
+- the daily brief creates habit instead of one-off experimentation
+- cron troubleshooting protects trust before the workflow scales
+
+### Engineering-heavy team in Feishu
+
+Start with:
+
+1. [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
+2. [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+3. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+
+Why this stack first:
+
+- Feishu is where reviewers already coordinate
+- PR summaries reduce the highest recurring GitHub noise first
+- deploy alerts layer in after review context is already readable
+
+### Ops-led team in Feishu
+
+Start with:
+
+1. [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
+2. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+3. [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+
+Why this stack first:
+
+- deploy visibility usually creates the fastest obvious value
+- Feishu gives the team one shared room for operational follow-up
+- troubleshooting coverage keeps the alerting loop credible
 
 ## Best first automations after Feishu is live
 
