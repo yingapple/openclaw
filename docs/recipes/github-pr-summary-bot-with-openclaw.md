@@ -69,6 +69,26 @@ This recipe is especially strong if your team already uses one of these channels
 
 If you do not have a stable chat route yet, set that up first. PR summaries are only useful if they land somewhere operators actually watch.
 
+## When this page should win priority over the other first-wave recipes
+
+If you are deciding what to build next inside the 8-page pack, this page should usually win when the immediate pain is **review coordination** rather than deploy visibility, channel setup, or founder storytelling.
+
+| If your real problem is... | Start here first? | Why |
+| --- | --- | --- |
+| GitHub notifications are noisy and reviewers miss context or ownership | Yes | This page turns fragmented PR events into one readable stream with a clear next owner action. |
+| We already have deploy alerts, but review handoffs still stall | Yes | PR summaries usually fix the earlier coordination bottleneck in the engineering loop. |
+| We still have no stable OpenClaw chat surface | Usually no | Start with [OpenClaw for Feishu](/recipes/openclaw-for-feishu) or [OpenClaw for Telegram](/recipes/openclaw-for-telegram) so the summaries have somewhere reliable to land. |
+| The team mainly needs deploy visibility after merge | Maybe | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) may be the better first alerting page. |
+| The buyer wants the whole founder workflow story, not just engineering signal compression | Maybe later | Start with [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) after the underlying engineering signal feed is credible. |
+| Scheduled workflows are already unreliable | No | Repair trust first with [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running). |
+
+A simple rule:
+
+- choose **GitHub PR summaries** first when the team already lives in GitHub and the main pain is **"important review context gets lost between GitHub and chat"**
+- choose **Vercel deployment alerts** first when the bigger pain happens after merge, at deploy time
+- choose **a chat integration page** first when OpenClaw is not yet present where the team actually coordinates
+- choose **cron troubleshooting** first when reliability is already in doubt
+
 ## What a good PR summary should contain
 
 A good OpenClaw PR summary usually answers six questions immediately:
@@ -268,6 +288,75 @@ to: "-1001234567890"
 
 This is better once the bot belongs in a team room and should not drift with personal activity.
 
+## A routing pattern worth shipping early: split by PR event type
+
+One of the highest-value upgrades is to **treat different PR events differently instead of sending every summary to the same room with the same urgency**.
+
+A practical v1 routing policy often looks like this:
+
+- **review requested** -> send to the main engineering room or reviewer topic
+- **changes requested** -> send quickly to the author-facing room with a clear owner action
+- **approved** -> keep it quieter unless the merge decision needs visibility
+- **merged** -> optionally send to a broader product or ops room because downstream deploy visibility matters more now
+
+That matters because most teams do not have a "too few PR notifications" problem.
+They have a **"too many GitHub events with no urgency distinction"** problem.
+
+If you want to encode that policy directly, your transform can surface a clearer urgency and routing hint for the agent, for example:
+
+```js
+export function transformGitHubPrWebhook({ payload }) {
+  const action = payload.action ?? "unknown-action";
+  const pr = payload.pull_request ?? {};
+  const repo = payload.repository?.full_name ?? "unknown-repo";
+  const number = pr.number ?? payload.number ?? "unknown-number";
+  const title = pr.title ?? "(no title)";
+  const state = pr.state ?? "unknown-state";
+  const draft = pr.draft ? "draft" : "ready-for-review";
+  const author = pr.user?.login ?? "unknown-author";
+  const branch = pr.head?.ref ?? "unknown-branch";
+  const base = pr.base?.ref ?? "unknown-base";
+  const url = pr.html_url ?? payload.review?.html_url ?? payload.comment?.html_url ?? "(no url)";
+  const requestedReviewers = (pr.requested_reviewers ?? [])
+    .map((reviewer) => reviewer.login)
+    .join(", ") || "none";
+  const reviewState = payload.review?.state ?? "none";
+  const urgency = action === "review_requested"
+    ? "review-queue"
+    : reviewState === "changes_requested"
+      ? "author-action"
+      : pr.merged
+        ? "post-merge"
+        : "normal";
+
+  return {
+    kind: "agent",
+    message: [
+      "You are summarizing a GitHub pull request event for a busy engineering lead, founder, or operator chat.",
+      "Keep the message concise and operational.",
+      "Make the urgency obvious from the event type and review state.",
+      "End with one short next-step line.",
+      "",
+      `repo: ${repo}`,
+      `pr: #${number}`,
+      `title: ${title}`,
+      `action: ${action}`,
+      `state: ${state}`,
+      `draft: ${draft}`,
+      `author: ${author}`,
+      `branch: ${branch} -> ${base}`,
+      `requested_reviewers: ${requestedReviewers}`,
+      `review_state: ${reviewState}`,
+      `urgency: ${urgency}`,
+      `url: ${url}`,
+    ].join("\n"),
+  };
+}
+```
+
+You do **not** need to perfect this on day one.
+You only need enough structure so review requests, requested changes, approvals, and merges stop feeling interchangeable in chat.
+
 ## Step 6: test with a safe sample event
 
 Before trusting real PR traffic, send one controlled request to the endpoint.
@@ -306,7 +395,7 @@ For most teams, the ideal output is not long.
 
 A strong PR summary looks more like this:
 
-> GitHub PR: acme/docs-site #42 "Improve onboarding docs" is ready for review from `feat/onboarding` to `main`. Ada requested review from Grace. Next step: Grace reviews blocking doc accuracy and merge readiness. https://github.com/acme/docs-site/pull/42
+> GitHub PR: acme/docs-site #42 "Improve onboarding docs" is ready for review from `feat/onboarding` to `main`. Ada requested review from Grace. Next step: Grace reviews blocking doc accuracy and merge readiness. <https://github.com/acme/docs-site/pull/42>
 
 And less like this:
 
@@ -388,6 +477,52 @@ That is usually a routing issue:
 - the underlying channel auth/config is not stable yet
 
 If this matters operationally, move from `channel: "last"` to a fixed `channel` + `to` pair.
+
+## Starter stacks by team shape
+
+Use these when the buyer says "we live in GitHub all day" but does not yet know which OpenClaw workflow should come immediately before or after this page.
+
+### Engineering team already coordinating in Feishu
+
+Start with:
+
+1. [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
+2. [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+3. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+
+Why this stack first:
+
+- Feishu gives PR summaries a room the team already watches
+- review coordination pain usually happens before deploy visibility pain
+- deploy alerts make more sense once PR signal is already readable
+
+### Mobile-first technical team using Telegram
+
+Start with:
+
+1. [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
+2. [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+3. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+
+Why this stack first:
+
+- Telegram keeps the review loop reachable on mobile
+- PR summaries reduce GitHub notification fragmentation first
+- deploy alerts can then reuse the same chat surface without starting from scratch
+
+### Founder or engineering lead wants only the highest-signal engineering feed
+
+Start with:
+
+1. [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+2. [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+3. [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)
+
+Why this stack first:
+
+- PR review state is often the earliest useful engineering signal a founder can actually act on
+- the daily brief can compress that signal into one habit-forming loop
+- the executive-assistant page becomes more credible once one live engineering feed already exists
 
 ## Why this page matters in the first wave
 
