@@ -449,6 +449,52 @@ A good rule of thumb:
 - use **native Vercel notifications alone** if you only want raw awareness and low message volume
 - use **OpenClaw** when you want deploy events to become a readable operational workflow that can later connect to PR summaries, daily briefs, and escalation rules
 
+## Starter stacks by team shape
+
+Use these when the buyer says “we deploy on Vercel already” but does not yet know which OpenClaw page should come immediately before or after this one.
+
+### Engineering team already coordinating in Feishu
+
+Start with:
+
+1. [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
+2. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+3. [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+
+Why this stack first:
+
+- Feishu gives deployment alerts a room the team already watches
+- deploy visibility usually creates obvious value quickly for ops-heavy engineering teams
+- PR summaries layer in next so the team sees both **what just shipped** and **what review context led there**
+
+### Mobile-first founder or operator using Telegram
+
+Start with:
+
+1. [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
+2. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+3. [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+
+Why this stack first:
+
+- Telegram keeps deploy visibility reachable from anywhere
+- Vercel alerts create immediate operational usefulness without opening another dashboard
+- the daily brief can later compress the deploy stream into one founder-readable morning summary
+
+### Founder or engineering lead wants one high-signal shipping feed first
+
+Start with:
+
+1. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+2. [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+3. [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)
+
+Why this stack first:
+
+- deployment events are often the fastest trustworthy machine signal to operationalize
+- cron troubleshooting protects trust before more recurring workflows depend on the same runtime
+- the executive-assistant narrative becomes more credible once one live operational feed already works
+
 ## Why this page matters in the first wave
 
 Among first-wave OpenClaw recipe pages, this one earns its spot because it sits at the intersection of:
