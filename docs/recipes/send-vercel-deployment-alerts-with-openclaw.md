@@ -67,6 +67,24 @@ This recipe is especially strong if your team already uses one of these channels
 
 If you do not have a chat channel set up yet, do that first. Vercel alerts are much more useful when they have a clear delivery destination.
 
+## When this page should win priority over the other first-wave recipes
+
+If you are deciding what to build first inside the 8-page pack, this page should usually win when the immediate pain is **shipping visibility**, not channel setup or buyer storytelling.
+
+| If your real problem is... | Start here first? | Why |
+| --- | --- | --- |
+| We deploy constantly and the team ignores raw Vercel notifications | Yes | This page converts noisy machine events into short, readable, action-oriented alerts. |
+| We still have no stable chat surface for OpenClaw | Usually no | Start with [OpenClaw for Feishu](/recipes/openclaw-for-feishu) or [OpenClaw for Telegram](/recipes/openclaw-for-telegram) first so the alert has somewhere trustworthy to land. |
+| The founder wants one morning summary, not live deploy pushes | Maybe later | Start with [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders), then feed deploy signal into that workflow. |
+| Scheduled jobs are already flaky and trust is low | No | Fix reliability first with [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running). |
+| Engineering coordination pain is more about PR reviews than deploys | Maybe | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) may be the better first alerting page. |
+
+A simple rule:
+
+- choose **Vercel deployment alerts** first when the team already ships on Vercel and the main issue is **"important deploy context gets lost in notification noise"**
+- choose **a chat integration page** first when OpenClaw is not yet present where people actually work
+- choose **cron troubleshooting** first when delivery trust is already broken
+
 ## What a good deployment alert should contain
 
 A good OpenClaw deployment alert usually answers five things immediately:
@@ -240,6 +258,59 @@ to: "-1001234567890"
 
 This is better once the automation is stable and belongs in a team room.
 
+## A production-vs-preview routing pattern worth shipping early
+
+One of the biggest practical upgrades is to **treat production and preview deploys differently**.
+
+A common v1 routing policy looks like this:
+
+- **production success** -> send to the main engineering or ops room
+- **production failure** -> send immediately to the main room with a stronger next-step hint
+- **preview success** -> send to a quieter room, topic, or the last active operator
+- **preview failure** -> send only if the preview is tied to a high-importance branch or stakeholder demo
+
+That matters because teams usually do not have a "too few alerts" problem.
+They have a **"too many alerts with the same urgency"** problem.
+
+If you want to encode that policy directly, your transform can emit a clearer instruction set for the agent, for example:
+
+```js
+export function transformVercelDeployment({ payload }) {
+  const project = payload.project?.name ?? payload.name ?? "unknown-project";
+  const target = payload.target ?? "unknown-target";
+  const state = payload.state ?? payload.readyState ?? "unknown-state";
+  const branch = payload.meta?.githubCommitRef ?? payload.gitSource?.ref ?? "unknown-branch";
+  const commit = payload.meta?.githubCommitSha ?? payload.gitSource?.sha ?? "unknown-commit";
+  const author = payload.meta?.githubCommitAuthorName ?? payload.creator?.username ?? "unknown-author";
+  const url = payload.url ? `https://${payload.url}` : "(no deployment URL)";
+  const severity = target === "production"
+    ? state === "READY" ? "high-signal" : "urgent"
+    : state === "READY" ? "low-signal" : "medium";
+
+  return {
+    kind: "agent",
+    message: [
+      "You are summarizing a Vercel deployment event for a busy engineering or founder chat.",
+      "Keep the alert concise and operational.",
+      "Make the urgency obvious from the environment and state.",
+      "End with one short next-step line.",
+      "",
+      `project: ${project}`,
+      `target: ${target}`,
+      `state: ${state}`,
+      `severity: ${severity}`,
+      `branch: ${branch}`,
+      `commit: ${commit}`,
+      `author: ${author}`,
+      `url: ${url}`,
+    ].join("\n"),
+  };
+}
+```
+
+You do **not** need to perfect this on day one.
+You only need enough structure so production failures feel urgent and preview successes do not drown the room.
+
 ## Step 6: test with a safe sample event
 
 Before trusting production deploy traffic, send one controlled request to the endpoint.
@@ -274,7 +345,7 @@ For most teams, the ideal output is not long.
 
 A strong alert looks more like this:
 
-> Vercel deploy: docs-site preview is READY on main (abc1234). URL: https://demo-preview.vercel.app. Next check: confirm the docs change renders correctly and links are healthy.
+> Vercel deploy: docs-site preview is READY on main (abc1234). URL: <https://demo-preview.vercel.app>. Next check: confirm the docs change renders correctly and links are healthy.
 
 And less like this:
 
@@ -361,6 +432,22 @@ That is usually a delivery-routing issue:
 - the underlying channel auth/config is not stable yet
 
 If this matters operationally, move from `channel: "last"` to a fixed `channel` + `to` pair.
+
+## OpenClaw vs native Vercel notifications
+
+Vercel can already notify you.
+The reason to involve OpenClaw is not "because alerts exist."
+It is because **default notifications rarely compress decision-making well enough for busy teams**.
+
+| Approach | Good at | Weak at |
+| --- | --- | --- |
+| Native Vercel notifications | Fast setup, direct event delivery, basic environment visibility | Limited judgment, limited routing nuance, easy to ignore when deploy volume rises |
+| OpenClaw deployment alerts | Summary quality, chat-native routing, better next-step guidance, easy extension into founder briefs or ops workflows | Slightly more setup because you need webhook ingress and mapping |
+
+A good rule of thumb:
+
+- use **native Vercel notifications alone** if you only want raw awareness and low message volume
+- use **OpenClaw** when you want deploy events to become a readable operational workflow that can later connect to PR summaries, daily briefs, and escalation rules
 
 ## Why this page matters in the first wave
 
