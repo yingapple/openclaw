@@ -25,6 +25,37 @@ It is designed to route high-intent readers into the **first-wave pages most lik
 - **Troubleshooting** — fix silent failures before trust collapses
 - **Role-based workflows** — explain OpenClaw in buyer language, not just config language
 
+## Choose by pain, not by docs category
+
+If you arrived here from search, the fastest path is usually to match the page to your real operating pain.
+
+<CardGroup cols={2}>
+  <Card title="I need OpenClaw inside team chat" icon="messages-square" href="/recipes/openclaw-for-feishu">
+    Start with **OpenClaw for Feishu** if your team already runs in Feishu/Lark, or jump to **OpenClaw for Telegram** if the real need is mobile-first access.
+  </Card>
+  <Card title="I need alerts that people will actually read" icon="rocket" href="/recipes/send-vercel-deployment-alerts-with-openclaw">
+    Start with **Vercel deployment alerts** for shipping visibility, or **GitHub PR summaries** if the main pain is review coordination.
+  </Card>
+  <Card title="I need one founder-facing daily loop" icon="newspaper" href="/recipes/openclaw-daily-executive-brief-for-founders">
+    Start with the **Daily Executive Brief** if the goal is habit and morning orientation, then layer in the broader **AI Executive Assistant** workflow.
+  </Card>
+  <Card title="I need to fix reliability before adding more workflows" icon="alarm-clock-off" href="/recipes/openclaw-cron-not-running">
+    Start with **OpenClaw Cron Not Running** when scheduled jobs are silent, late, or delivering to the wrong place.
+  </Card>
+</CardGroup>
+
+## First-wave recipe map
+
+Use this map when you want the 8-page pack in one glance instead of reading the whole hub top to bottom.
+
+| Category | Best first page | Why it exists |
+| --- | --- | --- |
+| Recipes hub | [OpenClaw Recipes](/recipes) | Main routing layer across integration, alerting, troubleshooting, and founder-use-case intent. |
+| Integrations | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) / [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | Establish the chat surface where later briefs and alerts will actually be seen. |
+| Alerting & automation | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) / [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | Compress noisy engineering events into readable chat updates. |
+| Troubleshooting | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Repair trust when the scheduled workflow is failing or drifting. |
+| Role / use case | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) / [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | Translate OpenClaw from feature set into a founder-operator workflow someone will actually adopt. |
+
 ## Start with the highest-leverage recipes
 
 <Columns>
