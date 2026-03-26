@@ -193,7 +193,6 @@ Examples:
 - create a task from a brief item
 - send a tighter escalation when a threshold is crossed
 
-
 ## OpenClaw vs the usual alternatives
 
 People searching for an **AI executive assistant for founders** are usually comparing several approaches, even if they do not say it out loud.
@@ -373,6 +372,79 @@ That is why it works.
 
 The first win is not "maximum intelligence."
 The first win is **reliable founder orientation with low noise**.
+
+## A minimal founder-assistant stack you can actually ship
+
+A lot of "AI executive assistant" pages stay too abstract.
+A credible OpenClaw version does not need to be huge, but it does need a few fixed pieces.
+
+A practical v1 usually looks like this:
+
+```json5
+{
+  channels: {
+    telegram: {
+      enabled: true,
+      dmPolicy: "pairing",
+      botToken: "${TELEGRAM_BOT_TOKEN}",
+    },
+  },
+  hooks: {
+    enabled: true,
+    token: "${OPENCLAW_HOOKS_TOKEN}",
+    path: "/hooks",
+  },
+  cron: {
+    jobs: [
+      {
+        id: "founder-daily-brief",
+        schedule: "30 8 * * 1-5",
+        timezone: "Asia/Shanghai",
+        enabled: true,
+        deliver: {
+          channel: "telegram",
+          to: "123456789"
+        },
+        prompt: `Prepare the founder's daily executive brief.
+
+Prioritize:
+1. critical blockers, incidents, or deadlines
+2. meaningful product / engineering movement
+3. repeated customer signal
+4. today's calendar constraints
+5. exactly 3 recommended actions
+
+Be concise. Prefer signal over completeness.`
+      }
+    ]
+  }
+}
+```
+
+You can swap Telegram for Feishu or another supported chat surface, but the product logic should stay the same:
+
+- **one stable destination** for the founder
+- **one fixed morning send time** in the founder's timezone
+- **one explicit ranking contract** for what counts as important
+- **one way to add richer signals later** through hooks such as GitHub PR summaries or Vercel deployment alerts
+
+That is enough to feel like an executive assistant.
+It is not yet maximal, but it is already operational.
+
+## Choose the right founder-assistant starting point
+
+Not every team should begin with the same module, even if they eventually want the full executive-assistant system.
+
+| If the immediate need is... | Best first page | Why this should win first |
+| --- | --- | --- |
+| A founder wants one recurring orientation loop every morning | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | The daily brief creates the first durable habit and proves OpenClaw can reduce attention fragmentation. |
+| The founder needs OpenClaw reachable from the chat tool they already use | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) / [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | Without a trusted surface, the assistant is still a concept instead of an operating tool. |
+| Leadership mostly cares about engineering movement or shipping risk | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) / [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | One high-signal feed is often the fastest way to make the founder workflow feel grounded in reality. |
+| Scheduled updates already feel flaky or late | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Reliability repair is higher priority than adding a more ambitious founder story. |
+| The buyer asks, "What does the whole founder operating model look like?" | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | This page is the narrative layer that connects channel, cron, signal feeds, and escalation into one believable system. |
+
+That is the real role of this page in the first-wave pack:
+**it should not replace the narrower recipes — it should assemble them into one founder-grade operating model.**
 
 ## What to measure in the first 14 days
 
