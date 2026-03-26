@@ -97,6 +97,29 @@ It is often the shortest path to three high-value production workflows:
   </Card>
 </CardGroup>
 
+## Build-next jumpstart: the first Feishu workflow worth shipping
+
+Once the bot is reachable in Feishu, the next question is not "what else can it do?" but **which one workflow will prove value fastest inside the chat surface people already trust**.
+
+Use this quick chooser:
+
+<CardGroup cols={2}>
+  <Card title="Founder daily brief in Feishu" icon="newspaper" href="/recipes/openclaw-daily-executive-brief-for-founders">
+    Best first move when the buyer is a founder or operator who wants one recurring morning update instead of checking ten tabs.
+  </Card>
+  <Card title="Readable deployment alerts in Feishu" icon="rocket" href="/recipes/send-vercel-deployment-alerts-with-openclaw">
+    Best first move when the team already ships often but raw deploy events are too noisy to trust.
+  </Card>
+  <Card title="GitHub PR summaries in team chat" icon="git-pull-request-arrow" href="/recipes/github-pr-summary-bot-with-openclaw">
+    Best first move when review coordination is the pain and the team already discusses code in Feishu rooms.
+  </Card>
+  <Card title="Cron reliability before rollout" icon="alarm-clock-off" href="/recipes/openclaw-cron-not-running">
+    Best first move when scheduled jobs are flaky, late, or landing in the wrong destination.
+  </Card>
+</CardGroup>
+
+If you only remember one rule: **ship Feishu first as the distribution surface, then launch exactly one of these workflows before expanding wider**.
+
 ## Fastest path to value
 
 If you want a practical rollout order, do it like this:

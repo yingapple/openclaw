@@ -87,6 +87,29 @@ read_when:
 - 按需增加 sender / group allowlist
 - 等基础工作流稳定后，再考虑 thread-bound ACP 或多智能体路由
 
+## 上线后先做什么：Feishu 的第一条高价值工作流
+
+当机器人已经能在飞书里正常触达时，下一步真正该问的不是“它还能做什么”，而是 **哪一个工作流最能在团队已经信任的聊天界面里最快证明价值**。
+
+可以用下面这个快速判断：
+
+<CardGroup cols={2}>
+  <Card title="先做创始人日报" icon="newspaper" href="/zh-CN/recipes/openclaw-daily-executive-brief-for-founders">
+    当主要买方是创始人、负责人或运营 owner，希望每天早上只看一份定向摘要时，这是最好的第一步。
+  </Card>
+  <Card title="先做可读的部署告警" icon="rocket" href="/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw">
+    当团队发布频繁，但原始部署事件太吵、不值得盯时，这是最快能感知价值的第一条自动化。
+  </Card>
+  <Card title="先做 GitHub PR 摘要" icon="git-pull-request-arrow" href="/zh-CN/recipes/github-pr-summary-bot-with-openclaw">
+    当 review 协作和 GitHub 噪音才是主要痛点，而且团队本来就会在飞书里讨论代码时，这条最值得先上。
+  </Card>
+  <Card title="先修 cron 可靠性" icon="alarm-clock-off" href="/zh-CN/recipes/openclaw-cron-not-running">
+    当定时任务本来就不稳定、经常晚到、或者投递位置不对时，先修信任，再扩大分发。
+  </Card>
+</CardGroup>
+
+如果只记住一条规则：**先把 Feishu 做成稳定分发表面，然后只上线这四条里最重要的一条，再考虑扩张。**
+
 ## 配置与上线：OpenClaw for Feishu
 
 ### 第 1 步：创建飞书应用
