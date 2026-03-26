@@ -32,6 +32,24 @@ Fix this before shipping more automations when any of these are true:
 
 That is why **OpenClaw Cron Not Running** is a high-leverage page in the first-wave recipe pack: reliability is the prerequisite for every scheduled workflow you want to grow later.
 
+## Which broken workflow probably sent you here?
+
+A lot of people do not search for cron because they love cron.
+They search because a workflow they already cared about stopped being trustworthy.
+
+Use this table to jump straight back to the workflow that probably created the pain in the first place.
+
+| If the thing that feels broken is... | Start with this troubleshooting page | Then return to this workflow page |
+| --- | --- | --- |
+| the founder or operator morning brief did not arrive | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) |
+| deployment alerts are late, missing, or inconsistent | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) |
+| review digests stopped showing up in team chat | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) |
+| a founder-facing assistant loop now feels unreliable | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) |
+| scheduled follow-ups are landing in the wrong chat surface | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) or [OpenClaw for Telegram](/recipes/openclaw-for-telegram) |
+
+That routing matters because cron failures are rarely interesting on their own.
+What people really want is to restore trust in a workflow that already mattered: the daily brief, the deploy feed, the PR digest, or the founder assistant loop.
+
 ## Symptom -> likely cause -> first proof
 
 | Symptom | Most likely cause | First proof to collect |
