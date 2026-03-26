@@ -32,6 +32,25 @@ OpenClaw for Feishu is a strong fit if you want to:
 
 If your team primarily lives in Telegram instead, see [OpenClaw for Telegram](/recipes/openclaw-for-telegram).
 
+## OpenClaw vs a plain Feishu bot or internal chat webhook
+
+A lot of teams searching for **OpenClaw for Feishu** are really comparing three different ideas:
+
+1. a basic Feishu/Lark bot that only replies to direct commands
+2. a webhook bridge that forwards events into chat
+3. an assistant that can live in Feishu, summarize signal, and keep follow-up in the same place
+
+OpenClaw is strongest in the third category.
+
+| If you are considering... | Good at | Weak at | Why OpenClaw is different |
+| --- | --- | --- | --- |
+| Plain Feishu/Lark bot | Fast setup, simple request/response interactions, narrow task execution | Usually reactive only, weak memory, weak cross-tool orchestration, limited proactive behavior | OpenClaw can combine chat replies, cron, hooks, memory, and follow-up workflows in one Feishu operating surface. |
+| Raw webhook forwarding into Feishu | Very fast for basic alert delivery | Turns chat into a firehose, weak summarization, weak prioritization | OpenClaw can summarize deploys, PRs, and recurring checks before they land in Feishu. |
+| Internal dashboard first | Deep inspection and custom UI | Slower to launch, lower day-one adoption, another tool the team has to remember | OpenClaw starts in Feishu where the team already works, then grows into a richer workflow later. |
+
+That distinction matters because many teams do **not** need “a Feishu bot” in the abstract.
+They need **an AI operator that actually fits the company chat they already use every day**.
+
 ## When Feishu should win over other first-wave starting points
 
 Choose **OpenClaw for Feishu** first when the real requirement is internal adoption, company-chat delivery, or founder/operator workflows inside the chat surface the team already watches all day.
