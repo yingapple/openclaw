@@ -120,6 +120,25 @@ Use this quick chooser:
 
 If you only remember one rule: **ship Feishu first as the distribution surface, then launch exactly one of these workflows before expanding wider**.
 
+## Which Feishu workflow should you launch first?
+
+A lot of teams arrive on this page with the right integration in mind but the wrong next step.
+They know they want **OpenClaw in Feishu**, but they do not yet know whether the first workflow should be a founder brief, deploy alerts, PR summaries, or cron-backed ops check-ins.
+
+Use this chooser when the integration is clear but the first production workflow is not.
+
+| If the buyer or team says... | Ship this in Feishu first | Why this usually wins |
+| --- | --- | --- |
+| "I want one concise leadership update every morning." | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | Best first recurring workflow when the real need is orientation, not live event traffic. |
+| "Deploys happen all day, but nobody trusts or reads the alerts." | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | Fastest path from raw engineering noise to one readable ops signal in the team chat. |
+| "Review requests are scattered and people miss important PR context." | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | Strongest first move when Feishu is already where engineers coordinate day to day. |
+| "The schedule is flaky, and I do not trust automations yet." | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Reliability should beat expansion if cron-backed workflows are already failing or landing in the wrong place. |
+| "I need the full founder/operator story, not just one automation." | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | Best page for the broader product narrative after the Feishu delivery surface is already believable. |
+
+That ordering is deliberate.
+**Feishu is the distribution layer, but distribution alone is not the product story.**
+The fastest path to trust is to pair this integration page with the single workflow that matches the sharpest pain inside the company chat people already check.
+
 ## Fastest path to value
 
 If you want a practical rollout order, do it like this:
