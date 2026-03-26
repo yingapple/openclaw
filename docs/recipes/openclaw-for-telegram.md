@@ -32,6 +32,27 @@ OpenClaw for Telegram is a strong fit if you want to:
 
 If your team primarily lives in Feishu or Lark instead, see [OpenClaw for Feishu](/recipes/openclaw-for-feishu).
 
+## OpenClaw vs a plain Telegram bot, raw alert forwarding, or another chat surface
+
+A lot of people searching for **OpenClaw for Telegram** are really comparing four different things:
+
+1. a basic Telegram bot that only answers commands
+2. raw webhooks that dump alerts into a group
+3. a different chat surface such as Feishu, Slack, or Discord
+4. an assistant that stays reachable in Telegram and can keep workflows moving there
+
+OpenClaw is strongest in the fourth category.
+
+| If you are considering... | Good at | Weak at | Why OpenClaw is different |
+| --- | --- | --- | --- |
+| Plain Telegram bot | Fast setup, narrow command execution, simple request/response flows | Usually reactive only, weak summarization, weak memory, weak proactive behavior | OpenClaw combines Telegram replies, cron, hooks, memory, and follow-up work in one chat surface. |
+| Raw alert forwarding into Telegram | Very fast for basic notifications | Groups become noisy fast, poor prioritization, poor next-step guidance | OpenClaw can summarize deploys, PRs, and recurring checks before they hit the chat. |
+| Slack/Discord first | Familiar for many engineering teams, rich app ecosystems | Another desktop-heavy surface, weaker personal mobile reachability for some teams | Telegram often wins when the real requirement is pocket access and lightweight rollout instead of deeper enterprise tooling. |
+| Feishu/Lark first | Excellent internal-company-chat fit, strong default for China-based teams | Less universal outside the company context, weaker fit when the main need is personal/mobile reachability | Telegram is usually the better first move when the owner needs OpenClaw available everywhere, not only inside the company chat stack. |
+
+That distinction matters because many teams do **not** need “a Telegram bot” in the abstract.
+They need **an AI operator that stays reachable in Telegram and turns noisy events into useful action**.
+
 ## When Telegram should win over other first-wave starting points
 
 Choose **OpenClaw for Telegram** first when the real requirement is mobility, reachability, or lightweight team rollout.
@@ -49,6 +70,20 @@ A simple rule of thumb:
 - pick **Telegram** when you need **mobile-first access** and lightweight group/topic routing
 - pick **Feishu** when you need **internal team adoption** inside the company chat everyone already watches
 - pick **Cron troubleshooting** when trust is already broken and shipping a new workflow would only amplify the problem
+
+## Telegram vs Feishu, Slack, Discord, and WhatsApp: which starting point fits best?
+
+Use this grid when the real decision is not “should we use OpenClaw?” but **which chat surface should carry the first workflow**.
+
+| If your highest-priority requirement is... | Best first surface | Why |
+| --- | --- | --- |
+| Pocket access for a founder, operator, or on-call owner | Telegram | Telegram is the cleanest mobile-first control surface for DMs, groups, and topic-based routing. |
+| Rollout inside the company chat the team already lives in | Feishu/Lark | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) is stronger when internal adoption matters more than public-network reachability. |
+| Deep app ecosystem inside an already-standardized engineering org | Slack or Discord | Those can still be great OpenClaw destinations, but they are usually not the fastest first move when the goal is personal reachability and lightweight launch. |
+| Personal messaging reach with fewer topic/workflow controls | WhatsApp | Great for reach, but Telegram usually gives you more flexible bot, group, and topic behavior for technical workflows. |
+| Reliability rescue before expansion | Cron troubleshooting | If the real pain is silent jobs, start with [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) before changing surfaces. |
+
+This is why **OpenClaw for Telegram** tends to outperform more generic chat-bot setups for early activation: it gives you fast setup *and* a credible path to deploy alerts, PR summaries, founder briefs, and on-call loops without introducing another UI.
 
 ## What you get after setup
 
