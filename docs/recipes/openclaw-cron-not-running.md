@@ -21,6 +21,27 @@ This page is the fast path to isolating which one you have.
 
 If you want the full feature overview first, see [Cron jobs and recurring automations](/automation/cron-jobs). If you already know cron is broken, stay here.
 
+## When this page should come first
+
+Fix this before shipping more automations when any of these are true:
+
+- your founder brief is not landing on time
+- deploy alerts are silent or delayed
+- PR summaries appear inconsistently
+- you no longer trust whether OpenClaw will fire at all
+
+That is why **OpenClaw Cron Not Running** is a high-leverage page in the first-wave recipe pack: reliability is the prerequisite for every scheduled workflow you want to grow later.
+
+## Symptom -> likely cause -> first proof
+
+| Symptom | Most likely cause | First proof to collect |
+| --- | --- | --- |
+| Nothing ran at all | scheduler disabled, job disabled, or gateway down | `openclaw cron status`, `openclaw cron list`, `openclaw gateway status` |
+| Run history exists but nobody got a message | delivery target unset, wrong recipient, or broken channel auth | `openclaw cron runs --id <jobId> --limit 20`, `openclaw channels status --probe` |
+| Job fired at the wrong wall-clock time | timezone mismatch or heartbeat assumptions mixed into cron debugging | `openclaw config get agents.defaults.userTimezone`, `openclaw cron list` |
+| Manual `cron run` looked successful but outcome is unclear | run was queued, not yet delivered | `openclaw cron run <jobId>`, then `openclaw cron runs --id <jobId> --limit 20` |
+| Older jobs behave strangely after upgrades | legacy cron store fields need normalization | `openclaw doctor --fix` |
+
 ## The fastest diagnosis path
 
 Run this ladder in order:

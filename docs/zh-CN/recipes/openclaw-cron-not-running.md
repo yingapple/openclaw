@@ -21,6 +21,27 @@ read_when:
 
 如果你想先看功能总览，请看 [Cron jobs and recurring automations](/zh-CN/automation/cron-jobs)。如果你已经确定是 cron 有问题，就直接按这页排查。
 
+## 什么情况下这页要优先看
+
+如果出现下面这些情况，应该先把这里排明白，再继续扩更多自动化：
+
+- 创始人晨报没有按时送达
+- 部署告警时有时无
+- PR 摘要经常缺席
+- 你已经不再信任 OpenClaw 会不会真的按时触发
+
+所以 **OpenClaw Cron 不运行怎么办** 在首批 recipe 里优先级很高：后面所有定时工作流的增长，都建立在“调度可靠”这件事上。
+
+## 症状 -> 高概率原因 -> 第一条证据
+
+| 症状 | 高概率原因 | 第一条该收集的证据 |
+| --- | --- | --- |
+| 完全没触发 | scheduler 被关闭、job 被禁用，或者 gateway 没活着 | `openclaw cron status`、`openclaw cron list`、`openclaw gateway status` |
+| 有 run 记录，但没人收到消息 | delivery target 没配好、收件目标写错、频道鉴权失效 | `openclaw cron runs --id <jobId> --limit 20`、`openclaw channels status --probe` |
+| 触发了，但时间不对 | 时区不一致，或者把 heartbeat 规则误当成 cron 规则 | `openclaw config get agents.defaults.userTimezone`、`openclaw cron list` |
+| 手动 `cron run` 看起来成功，但结果不清楚 | 只是成功入队，不代表已经投递 | `openclaw cron run <jobId>`，然后 `openclaw cron runs --id <jobId> --limit 20` |
+| 升级后老 job 行为古怪 | 旧版 cron store 字段需要被 normalize | `openclaw doctor --fix` |
+
 ## 最快的诊断路径
 
 按顺序跑这一组命令：
