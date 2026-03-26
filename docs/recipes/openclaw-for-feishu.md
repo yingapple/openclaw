@@ -32,6 +32,24 @@ OpenClaw for Feishu is a strong fit if you want to:
 
 If your team primarily lives in Telegram instead, see [OpenClaw for Telegram](/recipes/openclaw-for-telegram).
 
+## When Feishu should win over other first-wave starting points
+
+Choose **OpenClaw for Feishu** first when the real requirement is internal adoption, company-chat delivery, or founder/operator workflows inside the chat surface the team already watches all day.
+
+| If your situation looks like this... | Start with Feishu? | Why |
+| --- | --- | --- |
+| Team already runs most daily work in Feishu/Lark | Yes | Feishu is the shortest path to adoption because OpenClaw lands in the chat surface people already open by default. |
+| Founder, ops, and engineering all need one shared internal operating surface | Yes | Feishu gives you DMs, group rooms, and mention-gated rollout without introducing another tool the team has to remember. |
+| Primary requirement is mobile-first reachability outside company chat | Maybe | [OpenClaw for Telegram](/recipes/openclaw-for-telegram) is usually the better first move when the real requirement is "always in my pocket." |
+| Main problem is that scheduled jobs are silent, late, or landing in the wrong place | No | Fix trust first with [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) before widening distribution. |
+| Buyer wants the broad founder workflow narrative instead of setup instructions | Maybe later | Start with Feishu if this is the real delivery surface, then move up to [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders). |
+
+A simple rule of thumb:
+
+- pick **Feishu** when you need **internal team adoption** in the company chat everyone already checks
+- pick **Telegram** when you need **mobile-first reachability** and lighter external/group routing
+- pick **Cron troubleshooting** when reliability is already broken and new workflow launches would only amplify mistrust
+
 ## What you get after setup
 
 After a clean setup, you will have:
