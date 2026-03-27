@@ -205,6 +205,27 @@ If you are following the first-wave rollout strategy, the cleanest Telegram expa
 
 That sequence matters because **Telegram is usually the distribution layer first, and the higher-value automations compound on top of it**.
 
+## Which Telegram workflow should you launch first?
+
+If this page matched your channel choice but not yet your exact job to be done, use this grid to pick the next page.
+
+| If your real need is... | Start here next | Why this page should win |
+| --- | --- | --- |
+| Founder or operator needs one mobile-first morning briefing loop | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | Telegram DM is the delivery surface; the Daily Brief is the first habit-forming workflow on top of it. |
+| Team keeps missing deploy context in chat | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | Best first alerting workflow once Telegram is already the room people watch. |
+| GitHub review traffic is noisy and fragmented | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | Strongest next move when Telegram topics are going to carry engineering coordination. |
+| Scheduled reports or reminders are silent, late, or flaky | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Reliability repair should beat adding more surface area when trust is already damaged. |
+| Team actually lives in Feishu/Lark and Telegram was only one option under consideration | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) | Feishu is the better distribution layer if internal adoption in company chat matters more than mobile reachability. |
+| You want the full founder/operator product story instead of one automation | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | Best page for connecting Telegram delivery, cron, alerts, and summaries into one believable workflow. |
+| You want the whole first-wave map before choosing | [OpenClaw Recipes](/recipes) | The hub shows how Telegram fits into the full 8-page traffic pack. |
+
+A good rule of thumb:
+
+1. **Pick Telegram first** when reachability and mobile access are the real blockers.
+2. **Pick one operating workflow next** — deploy alerts, PR summaries, or a daily brief.
+3. **Pick troubleshooting first instead** if the schedule is already unreliable.
+4. **Pick the founder-assistant narrative last** when you need the bigger product story for adoption or buying.
+
 ### 1. Founder mobile brief
 
 Telegram is a strong delivery surface for:
