@@ -69,6 +69,53 @@ A simple rule of thumb:
 - pick **Telegram** when you need **mobile-first reachability** and lighter external/group routing
 - pick **Cron troubleshooting** when reliability is already broken and new workflow launches would only amplify mistrust
 
+## Feishu vs Telegram, Slack, Discord, and a plain Lark bot
+
+A lot of high-intent readers are not just asking "how do I connect Feishu?"
+They are deciding **which chat surface should carry the first OpenClaw workflow**.
+
+Use this matrix when the real decision is platform choice, not setup mechanics.
+
+| If your highest-priority requirement is... | Best first surface | Why |
+| --- | --- | --- |
+| Roll OpenClaw out inside the company chat your team already lives in | Feishu / Lark | Feishu wins when internal adoption matters most and you want DMs, group chats, approvals, and founder/operator workflows inside the same company operating surface. |
+| Keep OpenClaw reachable on mobile for a founder or owner outside the company context | Telegram | [OpenClaw for Telegram](/recipes/openclaw-for-telegram) is usually better when the main requirement is personal reachability from anywhere, not internal-team standardization. |
+| Plug into an already-standardized engineering app ecosystem | Slack or Discord | Those can be good destinations, but they are usually not the fastest first move when the operating center of gravity is already Feishu. |
+| Ship a narrow command bot as fast as possible | Plain Feishu/Lark bot | Faster for very simple request/response tasks, but weaker than OpenClaw for proactive workflows, summarization, memory, and cross-tool orchestration. |
+| Repair reliability before choosing any chat surface | Cron troubleshooting | If scheduled delivery is already flaky, [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) deserves priority before expanding distribution. |
+
+This is why **OpenClaw for Feishu** is one of the strongest first-wave pages:
+for Feishu-native teams, it is not only a setup guide — it is the most credible route to daily usage.
+
+## Fastest rollout order for a Feishu-first team
+
+If you want the shortest path from install to visible team value, use this sequence:
+
+### Phase 1: make OpenClaw reachable in Feishu
+
+- create the Feishu / Lark app
+- enable the bot capability and event subscription
+- add the credentials to OpenClaw
+- start the gateway and approve your first DM pairing
+
+### Phase 2: prove one workflow in the chat people already trust
+
+Pick only one of these first:
+
+- [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) if the buyer is a founder or operator
+- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) if engineering coordination is the pain
+- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) if shipping visibility is the pain
+
+### Phase 3: widen only after trust exists
+
+After the first workflow is landing reliably in Feishu:
+
+- add a second signal feed
+- add cron-based follow-ups
+- document the reliability path with [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running)
+
+That order matters because **distribution and trust usually create adoption faster than adding more clever prompts**.
+
 ## What you get after setup
 
 After a clean setup, you will have:
