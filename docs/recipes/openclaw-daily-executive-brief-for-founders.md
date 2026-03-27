@@ -32,6 +32,30 @@ This recipe shows how to build that workflow in OpenClaw.
 
 If you want the raw scheduling primitives first, see [Cron jobs and recurring automations](/automation/cron-jobs). If you want the founder-facing workflow itself, stay here.
 
+## Which founder operating problem probably sent you here?
+
+This page should not win by default just because "AI executive assistant" sounds broad.
+It should win when the real pain is **morning orientation**: too many signals, not enough prioritization, and no trusted daily loop.
+
+Use this quick routing guide before you build anything bigger:
+
+| If the real pain is... | Start here | Why that page should win first |
+| --- | --- | --- |
+| The founder needs one concise morning briefing instead of checking five tools | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | Best first workflow when the goal is habit, attention allocation, and daily orientation. |
+| The founder wants the broader product story, not just one cron workflow | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | Better page when you are selling the full assistant stack across chat, alerts, and follow-up. |
+| The immediate pain is deploy visibility and release confidence | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | Faster first win when the missing signal is shipping status rather than a full executive brief. |
+| The immediate pain is GitHub review noise or unclear engineering movement | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | Better first workflow when the founder mostly needs readable PR movement and owner visibility. |
+| The founder already likes the brief idea, but scheduling feels unreliable | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Reliability beats sophistication; fix trust in delivery before expanding the workflow. |
+| The founder needs the brief delivered into the company chat they already live in | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) / [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | Distribution comes first if the right chat surface is not wired up yet. |
+
+That ordering matters because **a founder brief is only valuable when three things are true at the same time**:
+
+1. the brief arrives in a chat surface the founder already watches
+2. the schedule is trustworthy
+3. the summary is focused enough to change what the founder does that day
+
+If one of those is missing, one of the adjacent first-wave pages usually deserves priority first.
+
 ## Why this page is worth building early
 
 This is one of the strongest first-wave OpenClaw pages because it sits at the intersection of:
