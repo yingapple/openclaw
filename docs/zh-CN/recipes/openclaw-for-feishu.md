@@ -32,6 +32,43 @@ read_when:
 
 如果你的团队主要工作在 Telegram，可以看 [OpenClaw for Telegram](/recipes/openclaw-for-telegram)。
 
+## OpenClaw vs 普通飞书机器人 / 内部 webhook
+
+很多搜索 **OpenClaw for Feishu** 的人，实际上在比较的是三种完全不同的东西：
+
+1. 只能响应命令的普通飞书 / Lark 机器人
+2. 只负责把事件转发进群里的 webhook 桥接器
+3. 真正能长期待在飞书里、做摘要、做跟进、并把后续动作留在同一个聊天面的 AI 助手
+
+OpenClaw 最擅长的是第三种。
+
+| 如果你在考虑的是... | 擅长什么 | 不擅长什么 | OpenClaw 的差异在哪里 |
+| --- | --- | --- | --- |
+| 普通飞书 / Lark 机器人 | 上线快、命令式交互直接、适合窄任务 | 往往只会被动响应，记忆弱，跨工具编排弱，主动能力有限 | OpenClaw 能把聊天回复、cron、hooks、memory 和后续工作流放进同一个飞书操作面。 |
+| 原始 webhook 转发进飞书 | 最快把事件塞进聊天 | 容易把群变成信息火 hose，摘要和优先级能力弱 | OpenClaw 可以先总结部署、PR 和周期检查，再把人类真正该看的版本发进飞书。 |
+| 先做内部 dashboard | 检查能力强、可做深度定制 | 上线慢、第一天采用率低、团队还要多记一个后台 | OpenClaw 先进入飞书这个大家已经在看的界面，再逐步扩展成更复杂的工作流。 |
+
+这个区分很关键。
+很多团队真正想要的不是抽象意义上的“一个飞书机器人”，而是 **一个真的能嵌进团队聊天、持续提供操作价值的 AI operator**。
+
+## 什么情况下应该优先做 Feishu，而不是其他首批页面
+
+当你的真实需求是“先把 OpenClaw 放进团队已经盯着的内部聊天里”，或者你要优先解决创始人 / 运营 / 工程在同一个公司聊天面的采用问题时，**OpenClaw for Feishu** 往往应该排在最前面。
+
+| 如果你的情况更像这样... | 要不要先做 Feishu？ | 为什么 |
+| --- | --- | --- |
+| 团队大部分日常协作都已经在飞书 / Lark | 要 | 因为 OpenClaw 落在大家默认会打开的聊天面里，采用阻力最低。 |
+| 创始人、运营、工程都需要一个共享的内部操作面 | 要 | 飞书同时支持私聊、群聊和 mention-gated rollout，不需要再发明一个新入口。 |
+| 主要诉求是移动端随时可达，而不是公司聊天内协作 | 视情况 | 如果真正要的是“随时装在口袋里”，通常先看 [OpenClaw for Telegram](/recipes/openclaw-for-telegram) 更合适。 |
+| 当前最大问题是定时任务不稳定、经常晚到或投错地方 | 不要 | 先用 [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) 修复可靠性，再扩大分发。 |
+| 买方更想先理解完整创始人工作流，而不是渠道接入细节 | 可后置 | 如果最终投递面还是飞书，可以先做 Feishu，再上升到 [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders)。 |
+
+一个简单判断规则：
+
+- 当你要的是 **内部团队 adoption**，优先选 **Feishu**
+- 当你要的是 **移动优先 reachability**，更优先看 **Telegram**
+- 当你已经出现 **cron 信任危机**，先修可靠性而不是继续扩展
+
 ## 完成接入后你会得到什么
 
 完成一套干净的飞书接入后，通常会有这几样东西：
@@ -109,6 +146,61 @@ read_when:
 </CardGroup>
 
 如果只记住一条规则：**先把 Feishu 做成稳定分发表面，然后只上线这四条里最重要的一条，再考虑扩张。**
+
+## 当 Feishu 已经接通，第一条生产工作流该选什么？
+
+很多团队在“接入飞书”这一步做对了，但在“接下来先上哪条工作流”这一步做错了。
+他们知道应该把 OpenClaw 放进飞书，却不确定第一条生产工作流应该是创始人日报、部署告警、PR 摘要，还是先修 cron。
+
+可以用这个判断表快速选：
+
+| 当团队 / 买方真正说的是... | 在飞书里先上线这个 | 为什么通常它最先赢 |
+| --- | --- | --- |
+| “我希望每天早上只收到一条领导层视角的摘要。” | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | 当真正问题是定向信息收敛，而不是实时事件流时，日报最容易形成习惯。 |
+| “部署一直在发生，但没人真正看原始告警。” | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | 这是从工程噪音到可读 ops 信号最快的一步。 |
+| “Review request 很散，重要 PR 上下文总会漏掉。” | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | 当工程团队本来就在飞书里讨论代码时，PR 摘要通常是最自然的第一条自动化。 |
+| “我们现在连 schedule 都不稳定，我先不信任自动化。” | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | 一旦可靠性有问题，先修 trust，再扩 workflow。 |
+| “我需要完整的 founder / operator 产品故事，而不是单点自动化。” | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | 当飞书作为投递面已经成立后，这页最适合向上承接更完整的产品叙事。 |
+
+这个优先级不是随便排的。
+**Feishu 是分发表面，不是完整产品故事本身。**
+最快建立信任的方法，是把这个集成页和“最贴近团队当前尖锐痛点的那一条工作流”绑在一起，而不是一次性把所有自动化都推上去。
+
+## 30 分钟内把 Feishu 跑出第一个可用版本
+
+如果你要走最短路径，从“接好”到“真的有一条工作流在飞书里可用”，可以按这个顺序推进。
+
+### 第 0 到 10 分钟：证明分发表面真的通了
+
+- 创建飞书应用
+- 在 OpenClaw 里录入凭据
+- 重启 gateway
+- 给机器人发一条私聊
+- 批准 pairing，并确认回复正常
+
+这个阶段先不要扩范围。
+目标只是证明“飞书这个投递面是真的活着的”。
+
+### 第 10 到 20 分钟：先选一个固定落点
+
+只选一个地方让第一条自动化落地：
+
+- 创始人私聊：适合 executive brief
+- 一个工程群：适合 PR 摘要
+- 一个 ops 群：适合部署告警
+
+这个决策比“多开几个自动化”更重要。
+**先有固定落点，飞书才会从 bot demo 变成操作面。**
+
+### 第 20 到 30 分钟：只上线一条，不要三条一起上
+
+按最尖锐痛点选：
+
+- **创始人视角信息收敛** -> [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+- **部署可见性** -> [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- **review 协作** -> [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+
+如果你第一天就把三条全推上去，飞书大概率会先变吵，而不是先建立信任。
 
 ## 配置与上线：OpenClaw for Feishu
 
