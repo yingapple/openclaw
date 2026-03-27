@@ -67,6 +67,30 @@ This recipe is especially strong if your team already uses one of these channels
 
 If you do not have a chat channel set up yet, do that first. Vercel alerts are much more useful when they have a clear delivery destination.
 
+## Which deployment-alert workflow should you launch first?
+
+If this page caught the click, the real need is usually not just “send Vercel somewhere.”
+It is one of a few adjacent operating problems.
+
+Use this decision table to route quickly to the right first-wave page.
+
+| If your actual problem is... | Best first page | Why start there |
+| --- | --- | --- |
+| We want readable Vercel deployment alerts in chat right now | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | This page is the shortest path from raw Vercel webhook noise to a human-readable deployment feed. |
+| We do not yet have a reliable chat destination for the alerts | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) / [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | Delivery surface comes before alert polish; otherwise the workflow has nowhere trustworthy to land. |
+| The real pain is review coordination, not deploy visibility | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | If the team misses review context more than deploy context, PR summaries will create faster adoption. |
+| Leadership wants a morning roll-up, not live deploy pushes all day | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | The daily brief is better when shipping signal should be compressed into one founder-readable routine. |
+| The broader goal is a founder-facing operating system, not a single deploy recipe | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | That page connects deploy alerts, PR summaries, daily briefs, chat access, and escalation into one believable product story. |
+| Scheduled workflows already feel flaky or silent | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Reliability repair is worth more than adding another alert source when trust is already damaged. |
+
+A simple rule:
+
+- choose **this page first** when the missing thing is a **high-signal shipping feed**
+- choose **a channel integration page first** when OpenClaw still is not reachable where the team actually works
+- choose **PR summaries first** when code review coordination hurts more than deploy awareness
+- choose **the founder brief or executive-assistant page first** when the buyer wants one operating narrative instead of one webhook recipe
+- choose **cron troubleshooting first** when trust in scheduled delivery is already shaky
+
 ## When this page should win priority over the other first-wave recipes
 
 If you are deciding what to build first inside the 8-page pack, this page should usually win when the immediate pain is **shipping visibility**, not channel setup or buyer storytelling.
