@@ -473,6 +473,70 @@
       "destination": "/zh-CN/recipes/index"
     },
     {
+      "source": "/feishu-bot",
+      "destination": "/recipes/openclaw-for-feishu"
+    },
+    {
+      "source": "/lark-bot",
+      "destination": "/recipes/openclaw-for-feishu"
+    },
+    {
+      "source": "/telegram-bot",
+      "destination": "/recipes/openclaw-for-telegram"
+    },
+    {
+      "source": "/vercel-deployment-alerts",
+      "destination": "/recipes/send-vercel-deployment-alerts-with-openclaw"
+    },
+    {
+      "source": "/github-pr-summary-bot",
+      "destination": "/recipes/github-pr-summary-bot-with-openclaw"
+    },
+    {
+      "source": "/daily-executive-brief",
+      "destination": "/recipes/openclaw-daily-executive-brief-for-founders"
+    },
+    {
+      "source": "/founder-ai-assistant",
+      "destination": "/recipes/ai-executive-assistant-for-founders"
+    },
+    {
+      "source": "/cron-not-running",
+      "destination": "/recipes/openclaw-cron-not-running"
+    },
+    {
+      "source": "/zh-CN/feishu-bot",
+      "destination": "/zh-CN/recipes/openclaw-for-feishu"
+    },
+    {
+      "source": "/zh-CN/lark-bot",
+      "destination": "/zh-CN/recipes/openclaw-for-feishu"
+    },
+    {
+      "source": "/zh-CN/telegram-bot",
+      "destination": "/zh-CN/recipes/openclaw-for-telegram"
+    },
+    {
+      "source": "/zh-CN/vercel-deployment-alerts",
+      "destination": "/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw"
+    },
+    {
+      "source": "/zh-CN/github-pr-summary-bot",
+      "destination": "/zh-CN/recipes/github-pr-summary-bot-with-openclaw"
+    },
+    {
+      "source": "/zh-CN/daily-executive-brief",
+      "destination": "/zh-CN/recipes/openclaw-daily-executive-brief-for-founders"
+    },
+    {
+      "source": "/zh-CN/founder-ai-assistant",
+      "destination": "/zh-CN/recipes/ai-executive-assistant-for-founders"
+    },
+    {
+      "source": "/zh-CN/cron-not-running",
+      "destination": "/zh-CN/recipes/openclaw-cron-not-running"
+    },
+    {
       "source": "/images",
       "destination": "/nodes/images"
     },
