@@ -28,6 +28,24 @@ It captures buyer language that is broader than any single integration, while st
 
 This page shows how to turn OpenClaw into that workflow.
 
+## Which founder workflow should you launch first?
+
+A lot of buyers land on **AI executive assistant for founders** when the real need is narrower.
+That is fine — as long as the page routes them to the right first move instead of forcing everyone through the same story.
+
+Use this grid when you want the fastest path from founder-assistant intent to the right first-wave OpenClaw page.
+
+| If the real need is... | Best first page | Why this should win first |
+| --- | --- | --- |
+| The founder needs the full product story in one page | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | This page explains the operating model across chat, cron, alerts, summaries, and follow-up. |
+| The immediate job is getting OpenClaw into the founder's main chat surface | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) / [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | Reachability comes before sophistication; the assistant needs a trusted place to live first. |
+| The founder mainly wants one concise morning brief | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | The daily brief is the fastest habit-forming workflow and the cleanest proof of value. |
+| Leadership mostly cares about engineering movement or shipping risk | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) / [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | One high-signal feed often makes the founder workflow feel real faster than a broad assistant narrative. |
+| Scheduled updates are already flaky, late, or silent | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Broken reliability destroys trust faster than missing features, so repair the system before expanding it. |
+| The team wants the complete workflow map before choosing | [OpenClaw Recipes](/recipes) | The recipes hub shows the whole first-wave pack and how the pages connect. |
+
+That routing logic matters because **“AI executive assistant” is often a top-of-funnel query, but adoption usually starts with one narrower, concrete workflow**.
+
 ## What founders actually need from an executive assistant
 
 The job is usually not “answer every question.”
