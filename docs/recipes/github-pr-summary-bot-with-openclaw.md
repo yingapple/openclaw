@@ -89,6 +89,29 @@ A simple rule:
 - choose **a chat integration page** first when OpenClaw is not yet present where the team actually coordinates
 - choose **cron troubleshooting** first when reliability is already in doubt
 
+## Which GitHub workflow should you launch first?
+
+If this page brought you in from search, the next right move is usually not "do every engineering automation at once."
+It is to choose the first workflow that removes the biggest coordination bottleneck.
+
+| If your actual situation is... | Start here next | Why this is the better first move |
+| --- | --- | --- |
+| Review requests already exist, but nobody notices the important ones fast enough | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | This page is the direct fix when the bottleneck is review visibility and next-owner clarity. |
+| Reviews are fine, but the real pain starts after merge when deploy status gets lost | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | PR summaries solve pre-merge coordination; Vercel alerts solve post-merge shipping awareness. |
+| GitHub summaries sound useful, but OpenClaw is still not inside the team chat everyone actually watches | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) or [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | You need a stable delivery surface before engineering alerts become habit-forming. |
+| The founder wants one operator view of product, engineering, and delivery instead of standalone dev alerts | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | The brief is the better first page when engineering signal needs to be compressed into one executive loop. |
+| The buyer is evaluating the whole product narrative, not just a PR bot | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | This page explains how PR summaries, deploy alerts, chat routing, and cron combine into one believable assistant workflow. |
+| The team already tried scheduled summaries or reminders and they silently fail | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Reliability beats sophistication; broken scheduled delivery will poison trust in every downstream workflow. |
+
+The practical sequence for most engineering teams is:
+
+1. put OpenClaw in the chat surface people already monitor
+2. launch **GitHub PR Summary Bot** when review coordination is the main pain
+3. add **Vercel deployment alerts** when the next blind spot is post-merge shipping visibility
+4. roll the important signal into a founder-facing daily brief once the event streams are trustworthy
+
+That sequence matters because **review visibility usually creates the first human coordination win**, while deploy alerts and executive summaries compound on top of it.
+
 ## What a good PR summary should contain
 
 A good OpenClaw PR summary usually answers six questions immediately:
