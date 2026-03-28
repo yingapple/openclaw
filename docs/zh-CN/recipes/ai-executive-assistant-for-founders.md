@@ -95,8 +95,8 @@ read_when:
 
 最值得先接的两个例子：
 
-- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
-- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+- [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 
 因为它们能把工程噪音直接转成创始人看得懂的运营信号。
 
@@ -276,7 +276,7 @@ OpenClaw 最强的部分通常在于：
 
 1. [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
 2. [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
-3. [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
+3. [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
 4. [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)
 
 为什么先这样做：
@@ -291,7 +291,7 @@ OpenClaw 最强的部分通常在于：
 建议起步组合：
 
 1. [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram)
-2. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+2. [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 3. [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
 4. [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)
 
@@ -309,8 +309,8 @@ OpenClaw 最强的部分通常在于：
 1. [AI Executive Assistant for Founders](/zh-CN/recipes/ai-executive-assistant-for-founders)
 2. [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu) 或 [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram)
 3. [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
-4. [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
-5. [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+4. [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+5. [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 
 为什么先这样做：
 
@@ -368,8 +368,8 @@ OpenClaw 最强的部分通常在于：
 配套页：
 
 - [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
-- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
-- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+- [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 - [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)
 
 ## 示例：创始人执行助理的 prompt contract
@@ -525,7 +525,7 @@ dashboard 适合深挖。
 - [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
 - [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
 - [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram)
-- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
-- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+- [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 - [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)
 - [Cron jobs and recurring automations](/zh-CN/automation/cron-jobs)
