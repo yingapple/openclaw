@@ -69,6 +69,24 @@ OpenClaw 最擅长的是第三种。
 - 当你要的是 **移动优先 reachability**，更优先看 **Telegram**
 - 当你已经出现 **cron 信任危机**，先修可靠性而不是继续扩展
 
+## 飞书 vs Telegram、Slack、Discord，以及普通 Lark 机器人
+
+很多高意图读者并不只是想问“飞书怎么接”。
+他们真正要判断的是：**第一条 OpenClaw 工作流到底应该落在哪个聊天面上**。
+
+如果你现在卡在“平台怎么选”，可以先看这张表。
+
+| 当你最优先的诉求是... | 最适合优先落地的聊天面 | 为什么 |
+| --- | --- | --- |
+| 先把 OpenClaw 放进团队已经天天在看的公司聊天里 | 飞书 / Lark | 当内部 adoption 是第一目标时，飞书通常是最短路径，因为私聊、群聊、审批式访问和创始人 / 运营工作流都能落在同一个公司操作面里。 |
+| 让创始人或 owner 在公司外也能随时从手机触达 OpenClaw | Telegram | 当真正需求是“随时装在口袋里”，通常 [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram) 更适合做第一入口。 |
+| 已经有一整套工程 app 生态，聊天面高度标准化 | Slack 或 Discord | 它们当然也能成为很好的落点，但如果团队的真实重心本来就在飞书，通常不是第一波最短路径。 |
+| 先做一个很窄、很快能响应命令的机器人 | 普通飞书 / Lark 机器人 | 对很简单的 request/response 任务，上线会更快；但在主动工作流、摘要、memory 和跨工具编排上，通常不如 OpenClaw。 |
+| 在扩大任何聊天分发前先修可靠性 | Cron 排障 | 如果定时任务本来就不稳定，应该先看 [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)，而不是继续扩面。 |
+
+这也是为什么 **OpenClaw for Feishu** 是首批最值得做的流量页之一：
+它不只是教你“怎么接飞书”，而是在回答 **“为什么飞书应该成为第一条 OpenClaw 分发表面”**。
+
 ## 完成接入后你会得到什么
 
 完成一套干净的飞书接入后，通常会有这几样东西：
