@@ -61,9 +61,9 @@ OpenClaw 在这里承担的是 Vercel 本身不擅长做好的那部分：
 
 如果你的团队已经在用下面这些渠道，这个 recipe 会尤其顺手：
 
-- [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
-- [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
-- [Webhook 接入](/automation/webhook)
+- [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
+- [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram)
+- [Webhook 接入](/zh-CN/automation/webhook)
 
 如果你还没有先把聊天渠道接通，建议先做那一步。因为 **Vercel 告警只有在有明确落点时才真正有价值。**
 
@@ -100,7 +100,7 @@ OpenClaw 在这里承担的是 Vercel 本身不擅长做好的那部分：
 - hook token 最好单独一套
 - **不要**复用主 gateway 的 auth token
 
-参考文档： [Webhooks](/automation/webhook)
+参考文档： [Webhooks](/zh-CN/automation/webhook)
 
 ## 第 2 步：给 Vercel 建一个独立 hook mapping
 
@@ -311,7 +311,7 @@ curl -X POST https://YOUR-GATEWAY-OR-PROXY/hooks/vercel \
 - 有上限的 timeout
 - 稳定的 session key 前缀，比如 `hook:vercel:`
 
-参考： [Webhook 安全建议](/automation/webhook#security)
+参考： [Webhook 安全建议](/zh-CN/automation/webhook#security)
 
 ## 什么时候值得把这条工作流做得更丰富
 
@@ -324,8 +324,8 @@ curl -X POST https://YOUR-GATEWAY-OR-PROXY/hooks/vercel \
 
 也正因为如此，这页天然适合和下面这些页面互相串联：
 
-- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
-- [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders)
+- [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+- [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
 
 如果这些页面在你的 docs build 里还没上线，把它们当成这页之后的下一批 recipe 即可。
 
@@ -343,8 +343,8 @@ curl -X POST https://YOUR-GATEWAY-OR-PROXY/hooks/vercel \
 
 先看这些文档：
 
-- [Webhooks](/automation/webhook)
-- [Gateway 故障排查](/gateway/troubleshooting)
+- [Webhooks](/zh-CN/automation/webhook)
+- [Gateway 故障排查](/zh-CN/gateway/troubleshooting)
 
 ### webhook 到了 OpenClaw，但摘要质量不对
 
@@ -376,9 +376,9 @@ curl -X POST https://YOUR-GATEWAY-OR-PROXY/hooks/vercel \
 
 ## 相关页面
 
-- [OpenClaw Recipes](/recipes)
-- [OpenClaw for Feishu](/recipes/openclaw-for-feishu)
-- [OpenClaw for Telegram](/recipes/openclaw-for-telegram)
-- [Hooks](/automation/hooks)
-- [Webhooks](/automation/webhook)
-- [Gateway 故障排查](/gateway/troubleshooting)
+- [OpenClaw Recipes](/zh-CN/recipes)
+- [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
+- [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram)
+- [Hooks](/zh-CN/automation/hooks)
+- [Webhooks](/zh-CN/automation/webhook)
+- [Gateway 故障排查](/zh-CN/gateway/troubleshooting)
