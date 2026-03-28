@@ -139,6 +139,107 @@ At a predictable local time, OpenClaw sends:
 - calendar pressure
 - the top three actions worth attention
 
+## What the founder actually receives
+
+A lot of pages about an **AI executive assistant for founders** stay too abstract.
+A founder does not buy a concept. They buy a feeling:
+
+**"I opened one message and now I know what matters."**
+
+That means this page should make the output concrete.
+
+### Example: a good founder daily brief
+
+A credible daily brief is usually short enough to read on a phone, but opinionated enough to reduce attention fragmentation.
+
+```text
+Good morning. Here is today's executive brief.
+
+What changed:
+- Vercel production deploy for docs succeeded at 07:42; preview deploy for dashboard failed on main.
+- 3 PRs merged yesterday; 1 critical review is still blocking the billing fix.
+- Two customers mentioned onboarding confusion in the last 24 hours.
+- Calendar is heavy from 13:00 to 17:00.
+
+What matters:
+- The failed dashboard preview is not a customer incident yet, but it could slow today's demo prep.
+- Billing fix is the highest engineering unblock because it affects active revenue work.
+- Repeated onboarding feedback is now a pattern, not a one-off comment.
+
+Top 3 actions:
+1. Ask engineering to confirm whether the dashboard preview failure affects the afternoon demo.
+2. Push the billing PR to review completion before noon.
+3. Decide whether onboarding confusion needs a same-week copy or product fix.
+```
+
+Why this works:
+
+- it separates **what happened** from **what matters**
+- it gives exactly a few actions instead of an unreadable dump
+- it sounds like an operator helping a founder prioritize, not a bot dumping logs
+
+### Example: a good immediate escalation
+
+A founder assistant should not only send the morning brief.
+It should also know when to interrupt.
+
+A good urgent message looks more like this:
+
+```text
+Heads up: production deploy for app-web failed on main.
+
+Why this matters:
+- checkout changes were included
+- the failure happened after the release window opened
+- support may start seeing impact if rollback is delayed
+
+Recommended next move:
+- confirm rollback status and ask whether customer-facing checkout is affected right now
+```
+
+And less like this:
+
+```text
+Deployment failed. See logs.
+```
+
+The difference is not verbosity.
+It is **decision support**.
+
+### Example: a useful founder follow-up thread
+
+A strong founder assistant should make the next question easy in the same chat.
+
+For example:
+
+```text
+Founder: Is the billing PR actually blocking revenue, or just internal cleanup?
+
+OpenClaw: It looks revenue-adjacent, not purely cleanup.
+The PR touches the invoice retry path and the team is waiting on it before enabling the next billing test cohort.
+If you want, I can summarize the exact blocker in plain English for the team.
+```
+
+This is what makes the workflow feel like an executive assistant instead of a scheduled summary bot:
+
+- the morning brief creates orientation
+- the escalation creates urgency only when needed
+- the follow-up thread keeps execution in the same place
+
+### The quality bar for founder-facing output
+
+If you are evaluating whether this workflow is good enough to trust, use this checklist.
+
+A strong founder-facing message should usually be:
+
+- **short enough to read in under two minutes**
+- **specific enough to preserve names, projects, and identifiers**
+- **ranked by importance, not by source system**
+- **explicit about uncertainty** when something is still ambiguous
+- **actionable**, with a next move instead of only a status update
+
+If the message is technically complete but does not change a decision, it is probably too noisy.
+
 ### During the day: answer in the same chat
 
 The founder can ask things like:
