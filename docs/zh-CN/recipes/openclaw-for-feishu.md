@@ -546,6 +546,68 @@ openclaw pairing approve feishu <CODE>
 
 这个 rollout 顺序看起来保守，但整体通常更快，因为你不用在过度扩张后再回来收拾现场。
 
+## 按团队形态选你的第一套 Feishu 组合
+
+如果你已经确定 **飞书就是第一分发表面**，真正还没定下来的通常不是“要不要接”，而是**接好以后第一条高价值工作流该和哪一页配套上线**。
+
+### 创始人主导团队
+
+优先顺序建议：
+
+1. [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
+2. [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
+3. [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)
+
+为什么这样排：
+
+- 飞书先解决创始人和团队的日常触达面
+- 日报是最容易形成习惯的第一条工作流
+- cron 排障页负责守住“每天都能准时收到”这层信任
+
+### 工程协作密集型团队
+
+优先顺序建议：
+
+1. [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
+2. [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+3. [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
+
+为什么这样排：
+
+- 飞书先成为工程讨论已经发生的聊天面
+- PR 摘要通常比部署告警更早解决 review handoff 问题
+- 当 PR 信号已经可读，再补部署告警，团队对“上线发生了什么”会更有上下文
+
+### 运营 / 值班导向团队
+
+优先顺序建议：
+
+1. [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
+2. [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
+3. [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)
+
+为什么这样排：
+
+- 飞书给值班和运营人员一个共同盯的房间
+- 部署告警通常是最容易立即产生可见价值的机器信号
+- cron 排障是为了避免“告警明明应该来，却突然沉默”的信任坍塌
+
+这个组合视角很重要。
+**飞书页本身解决的是分发与 adoption，真正让它变成高价值页面的，是它能明确把不同团队路由到下一条最应该上的工作流。**
+
+## 一个能真正上线的 Feishu v1 检查清单
+
+在你把“OpenClaw for Feishu 已经上线”当成完成之前，最好确认这几个点都成立：
+
+- 机器人能在 **私聊** 稳定收发，并且 pairing 已验证
+- 至少有 **一个固定投递目标**（创始人私聊 / 工程群 / ops 群）
+- 群聊初期保持 `requireMention: true`
+- 已经明确第一条自动化到底是 **日报 / PR 摘要 / 部署告警** 中的哪一个
+- 如果用到定时任务，已经知道出问题时去看 [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)
+- 长回答或摘要型场景下，已经决定是否启用 streaming
+
+如果这张清单里有两三项还没定，通常说明这页还停留在“接通演示”，还不算“真的上线”。
+
 ## 故障排查：最常见也最关键的失败点
 
 ### 机器人收不到消息
