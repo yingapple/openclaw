@@ -32,6 +32,24 @@ read_when:
 
 所以 **OpenClaw Cron 不运行怎么办** 在首批 recipe 里优先级很高：后面所有定时工作流的增长，都建立在“调度可靠”这件事上。
 
+## 哪个坏掉的工作流把你带到了这页？
+
+很多人并不是因为喜欢 cron 才搜 cron。
+他们真正想修复的，通常是一个已经开始不可信的工作流。
+
+先用这张表判断：你到底应该先排哪里，再回到哪一个业务页。
+
+| 如果你感觉坏掉的是… | 先从这个排障页开始 | 然后回到这个工作流页 |
+| --- | --- | --- |
+| 创始人 / 运营晨报没按时送达 | [OpenClaw Cron 不运行怎么办](/zh-CN/recipes/openclaw-cron-not-running) | [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders) |
+| Vercel 部署告警延迟、缺失或忽有忽无 | [OpenClaw Cron 不运行怎么办](/zh-CN/recipes/openclaw-cron-not-running) | [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw) |
+| GitHub review / PR 摘要突然不发了 | [OpenClaw Cron 不运行怎么办](/zh-CN/recipes/openclaw-cron-not-running) | [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw) |
+| 创始人助理型工作流整体开始不稳定 | [OpenClaw Cron 不运行怎么办](/zh-CN/recipes/openclaw-cron-not-running) | [AI Executive Assistant for Founders](/zh-CN/recipes/ai-executive-assistant-for-founders) |
+| 定时 follow-up 发到了错误聊天面，或没发到目标面 | [OpenClaw Cron 不运行怎么办](/zh-CN/recipes/openclaw-cron-not-running) | [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu) / [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram) |
+
+这张路由表重要，是因为 cron 故障本身通常不是用户真正关心的事情。
+用户真正要的是：把“晨报、告警、PR 摘要、创始人助理循环”恢复成值得信任的状态。
+
 ## 症状 -> 高概率原因 -> 第一条证据
 
 | 症状 | 高概率原因 | 第一条该收集的证据 |
@@ -61,6 +79,14 @@ openclaw logs --follow
 - **job 配置有误**
 - **消息投递链路配置错了**
 - **时区或 active hours 语义不一致**
+
+## 三个最容易看错的地方
+
+在继续往下排之前，先记住这 3 点：
+
+1. `openclaw cron run <jobId>` 的成功返回，只代表 **已经成功入队**，不代表消息已经送达。下一步一定要接 `openclaw cron runs --id <jobId> --limit 20`。
+2. 真正的持久化状态，通常在 `~/.openclaw/cron/jobs.json` 和 `~/.openclaw/cron/runs/<jobId>.jsonl`。如果你查错了 host、错了 home 目录，表面上会像是 cron 坏了，其实只是你看错地方。
+3. 如果 job 是在较老版本 OpenClaw 上创建的，最快的修复之一通常是 `openclaw doctor --fix`，它能先把旧版 cron store 字段 normalize 一次，避免调度器继续踩历史数据坑。
 
 ## 什么算是“健康”的 cron 状态
 
@@ -127,6 +153,18 @@ openclaw doctor
 
 如果 gateway 本身不稳定，优先把它当成主故障处理。
 
+#### 5. 你在用 `cron run` 测试，但把“没立刻看到结果”误判成失败
+
+手动执行最容易误读。
+
+```bash
+openclaw cron run <jobId>
+openclaw cron runs --id <jobId> --limit 20
+```
+
+`cron run` 返回成功，只说明 run **被接受并入队**。
+真正的成功或失败，要到 run history 和日志里看。
+
 ## 场景 2：Cron 触发了，但消息没有送达
 
 这是第二常见的问题。
@@ -176,6 +214,19 @@ openclaw logs --follow
 
 所以排查时不要只问：**“cron 到底跑没跑？”**
 而要问：**“它原本应该发到哪里？”**
+
+#### 4. Job 本身没坏，是你看的证据源不对
+
+如果你想看最接近事实的证据，直接去 gateway 所在 host 上检查 cron store 和 run log：
+
+- `~/.openclaw/cron/jobs.json`
+- `~/.openclaw/cron/runs/<jobId>.jsonl`
+
+这两个文件通常能直接回答三件事：
+
+- job 是否真的存在
+- 最近 run 是否真的被追加
+- 你现在看的到底是不是 gateway 真正在用的那台机器 / 那个 home 目录
 
 ## 场景 3：Cron 在错误的时间执行
 
@@ -280,6 +331,17 @@ openclaw logs --follow
 - gateway 主机时区
 - cron 显式指定的 timezone
 - 和 `activeHours` 相关的 timezone 假设
+
+### 第 6 步：先修 legacy job 形状，再做更复杂的猜测
+
+如果这条 job 是在更老的 OpenClaw 版本上创建的，先跑：
+
+```bash
+openclaw doctor --fix
+```
+
+它可以先把 `~/.openclaw/cron/jobs.json` 里的旧字段做一次 normalize，再继续让调度器处理。
+很多“看起来很玄学”的 cron 问题，根子其实是老数据形状不一致。
 
 ## 最常见的根因，用人话说
 
