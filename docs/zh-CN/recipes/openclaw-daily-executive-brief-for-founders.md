@@ -363,8 +363,8 @@ Rules:
 
 通常最值得先补的是：
 
-- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
-- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+- [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 
 ### Day 6：验证失败路径
 
@@ -401,9 +401,9 @@ openclaw logs --follow
 | 页面 | 最适合什么情况 | 它最先解锁什么 |
 | --- | --- | --- |
 | [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders) | 创始人最需要的是一个稳定晨间定向循环 | 一个低协作成本、容易形成习惯的每日 workflow |
-| [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | 读者需要的是更完整的产品故事 | 把聊天、摘要、告警、follow-up 串起来的总叙事 |
-| [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | 眼前最痛的是部署可见性 | 用极少行为改变拿到快速运营信号 |
-| [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | 眼前最痛的是工程 review 噪音 | 更好的 review 协作和更易读的工程动态 |
+| [AI Executive Assistant for Founders](/zh-CN/recipes/ai-executive-assistant-for-founders) | 读者需要的是更完整的产品故事 | 把聊天、摘要、告警、follow-up 串起来的总叙事 |
+| [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw) | 眼前最痛的是部署可见性 | 用极少行为改变拿到快速运营信号 |
+| [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw) | 眼前最痛的是工程 review 噪音 | 更好的 review 协作和更易读的工程动态 |
 
 一个实用经验是：
 
@@ -415,8 +415,8 @@ openclaw logs --follow
 
 这页最适合和下面这些页面一起看：
 
-- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
-- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+- [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 - [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
 - [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram)
 
@@ -534,8 +534,8 @@ openclaw logs --follow
 - [OpenClaw Recipes](/zh-CN/recipes)
 - [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
 - [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram)
-- [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw)
-- [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw)
+- [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+- [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 - [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)
 - [Cron jobs and recurring automations](/zh-CN/automation/cron-jobs)
 - [Gateway troubleshooting](/zh-CN/gateway/troubleshooting)
