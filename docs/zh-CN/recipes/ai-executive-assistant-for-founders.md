@@ -28,6 +28,8 @@ read_when:
 
 这页讲的不是“功能列表”，而是怎样把 OpenClaw 组织成一个创始人真会每天用的工作流。
 
+如果你还没决定应该先从哪个具体 workflow 下手，先看 [OpenClaw Recipes Hub](/zh-CN/recipes/recipes-hub)。它会先帮你判断：应该先做聊天入口、告警压缩、日报，还是先修 cron 可靠性。
+
 ## 创始人真正需要执行助理做什么
 
 这份工作的核心通常不是“回答所有问题”。
@@ -319,6 +321,21 @@ OpenClaw 最强的部分通常在于：
 - 日报成为晨间决策层
 - PR / deploy 摘要提供 founder/operator 协作的底层信号
 
+## 如果你只想先选“第一张页面”
+
+如果你搜到这页，但还没决定先落哪个具体 recipe，不要一口气全做。
+
+先按下面顺序判断：
+
+1. **团队主要工作在飞书 / Lark** -> 先看 [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
+2. **创始人需要手机里随时可达的入口** -> 先看 [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram)
+3. **眼前最痛的是部署或工程噪音** -> 先看 [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw) 或 [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+4. **最想先养成创始人的固定阅读习惯** -> 先看 [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
+5. **你已经担心 schedule、送达或时区不稳定** -> 先看 [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running)
+6. **还在判断优先级，不知道该先做哪类页面** -> 回到 [OpenClaw Recipes Hub](/zh-CN/recipes/recipes-hub)
+
+这一步的目标不是让 founder assistant 一次性“完整上线”，而是先找到最容易形成信任的第一条工作流。
+
 ## 最短可上线路径
 
 如果你只想用最短路径上线一个可信版本，就按下面顺序：
@@ -521,6 +538,7 @@ dashboard 适合深挖。
 
 ## 相关页面
 
+- [OpenClaw Recipes Hub](/zh-CN/recipes/recipes-hub)
 - [OpenClaw Recipes](/zh-CN/recipes)
 - [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
 - [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu)
