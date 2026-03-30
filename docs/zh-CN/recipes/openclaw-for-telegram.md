@@ -50,13 +50,13 @@ read_when:
 - 让 ACP / coding 工作流在 topic 里天然分区，而不是混成一团
 
 <CardGroup cols={3}>
-  <Card title="Telegram 渠道参考" icon="book-open" href="/channels/telegram">
+  <Card title="Telegram 渠道参考" icon="book-open" href="/zh-CN/channels/telegram">
     完整的配置、权限、topics、流式输出和网络行为说明。
   </Card>
-  <Card title="定时任务" icon="clock-3" href="/automation/cron-jobs">
+  <Card title="定时任务" icon="clock-3" href="/zh-CN/automation/cron-jobs">
     安排日报、提醒、摘要和周期性运营检查。
   </Card>
-  <Card title="Webhook 自动化" icon="webhook" href="/automation/hooks">
+  <Card title="Webhook 自动化" icon="webhook" href="/zh-CN/automation/hooks">
     从部署、GitHub、事故系统等外部事件触发 OpenClaw。
   </Card>
 </CardGroup>
@@ -98,7 +98,7 @@ read_when:
 
 更详细的 Telegram 平台侧行为，见：
 
-- [Telegram 渠道参考](/channels/telegram)
+- [Telegram 渠道参考](/zh-CN/channels/telegram)
 
 ### 第 2 步：把 Telegram token 配进 OpenClaw
 
@@ -175,9 +175,9 @@ Telegram 很适合作为这些内容的投递面：
 
 配套文档建议先看：
 
-- [定时任务](/automation/cron-jobs)
-- [心跳 vs cron](/automation/cron-vs-heartbeat)
-- [Standing orders](/automation/standing-orders)
+- [定时任务](/zh-CN/automation/cron-jobs)
+- [心跳 vs cron](/zh-CN/automation/cron-vs-heartbeat)
+- [Standing orders](/zh-CN/automation/standing-orders)
 
 ### 2. 真正适合手机阅读的部署告警
 
@@ -191,8 +191,8 @@ Telegram 很适合作为这些内容的投递面：
 
 配套文档建议先看：
 
-- [Webhook 自动化](/automation/hooks)
-- [Automation webhook 参考](/automation/webhook)
+- [Webhook 自动化](/zh-CN/automation/hooks)
+- [Automation webhook 参考](/zh-CN/automation/webhook)
 
 ### 3. 在团队 topic 里发 GitHub PR 摘要
 
@@ -205,8 +205,8 @@ Telegram topics 很适合承接这些信息：
 
 配套文档建议先看：
 
-- [Webhook 自动化](/automation/hooks)
-- [GitHub workflows via CLI and hooks](/cli/hooks)
+- [Webhook 自动化](/zh-CN/automation/hooks)
+- [GitHub workflows via CLI and hooks](/zh-CN/cli/hooks)
 
 ### 4. 运营提醒和周期性检查
 
@@ -219,8 +219,8 @@ Telegram 也很适合这类按时触发的循环：
 
 配套文档建议先看：
 
-- [定时任务](/automation/cron-jobs)
-- [自动化故障排查](/automation/troubleshooting)
+- [定时任务](/zh-CN/automation/cron-jobs)
+- [自动化故障排查](/zh-CN/automation/troubleshooting)
 
 ## 群组和 topic rollout 建议
 
@@ -274,7 +274,7 @@ Telegram topics 是这个渠道最有价值的能力之一。
 - 一个 topic 跑 ACP coding session
 - 一个 topic 做通用助理入口
 
-见：[Telegram forum topics and thread behavior](/channels/telegram#forum-topics-and-thread-behavior)
+见：[Telegram forum topics and thread behavior](/zh-CN/channels/telegram#forum-topics-and-thread-behavior)
 
 ## 一个真正能上线的 Telegram v1 方案
 
@@ -333,7 +333,7 @@ Telegram topics 是这个渠道最有价值的能力之一。
 用这些文档继续：
 
 - [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
-- [定时任务](/automation/cron-jobs)
+- [定时任务](/zh-CN/automation/cron-jobs)
 
 ### 方案 2：把 PR 摘要发进一个团队 topic
 
@@ -342,7 +342,7 @@ Telegram topics 是这个渠道最有价值的能力之一。
 用这些文档继续：
 
 - [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
-- [Webhook 自动化](/automation/hooks)
+- [Webhook 自动化](/zh-CN/automation/hooks)
 
 ### 方案 3：把部署告警发进一个 ops 群或 topic
 
@@ -351,7 +351,7 @@ Telegram topics 是这个渠道最有价值的能力之一。
 用这些文档继续：
 
 - [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
-- [Webhook 自动化](/automation/hooks)
+- [Webhook 自动化](/zh-CN/automation/hooks)
 
 ### 方案 4：把 ACP / 编码工作流固定到一个 topic
 
@@ -360,7 +360,7 @@ Telegram topics 是这个渠道最有价值的能力之一。
 用这些文档继续：
 
 - [ACP agents](/tools/acp-agents)
-- [Telegram 渠道参考](/channels/telegram#forum-topics-and-thread-behavior)
+- [Telegram 渠道参考](/zh-CN/channels/telegram#forum-topics-and-thread-behavior)
 
 ## Telegram 接通后，应该先上线哪一个工作流？
 
@@ -368,12 +368,12 @@ Telegram topics 是这个渠道最有价值的能力之一。
 
 | 如果你的真实需求是... | 下一页先看这里 | 为什么它该优先 |
 | --- | --- | --- |
-| 创始人或 owner 需要一个移动优先的每日摘要闭环 | [OpenClaw Daily Executive Brief for Founders](/zh-CN/zh-CN/recipes/openclaw-daily-executive-brief-for-founders) | Telegram 私聊是分发层，日报是最容易形成习惯的第一条工作流。 |
-| 团队总是错过部署上下文，聊天里只有原始 webhook 噪音 | [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw) | 最适合在 Telegram 群或 topic 里先落地的告警类工作流。 |
-| GitHub review 流量很碎，大家在群里抓不到重点 | [GitHub PR Summary Bot with OpenClaw](/zh-CN/zh-CN/recipes/github-pr-summary-bot-with-openclaw) | Telegram topics 很适合承接 PR 汇总和 review 协作。 |
-| 定时报告、提醒或日报偶发不发，团队已经开始不信任自动化 | [OpenClaw Cron Not Running](/zh-CN/zh-CN/recipes/openclaw-cron-not-running) | 先修信任，再扩工作流，比继续加页面更值。 |
+| 创始人或 owner 需要一个移动优先的每日摘要闭环 | [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders) | Telegram 私聊是分发层，日报是最容易形成习惯的第一条工作流。 |
+| 团队总是错过部署上下文，聊天里只有原始 webhook 噪音 | [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw) | 最适合在 Telegram 群或 topic 里先落地的告警类工作流。 |
+| GitHub review 流量很碎，大家在群里抓不到重点 | [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw) | Telegram topics 很适合承接 PR 汇总和 review 协作。 |
+| 定时报告、提醒或日报偶发不发，团队已经开始不信任自动化 | [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running) | 先修信任，再扩工作流，比继续加页面更值。 |
 | 你发现团队其实白天主要协作都在飞书 / Lark | [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu) | 如果主要入口不是 Telegram，就该切回更强的公司内部分发面。 |
-| 你要的是完整 founder / operator 产品故事，而不只是单个自动化 | [AI Executive Assistant for Founders](/zh-CN/zh-CN/recipes/ai-executive-assistant-for-founders) | 最适合把 Telegram、cron、告警和摘要串成一个可信叙事。 |
+| 你要的是完整 founder / operator 产品故事，而不只是单个自动化 | [AI Executive Assistant for Founders](/zh-CN/recipes/ai-executive-assistant-for-founders) | 最适合把 Telegram、cron、告警和摘要串成一个可信叙事。 |
 | 你想先看整个首批 recipe 网络，再决定先做哪页 | [OpenClaw Recipes](/zh-CN/recipes) | Recipes Hub 是 8 页流量包的总路由层。 |
 
 关键在于顺序。
@@ -428,8 +428,8 @@ Telegram topics 是这个渠道最有价值的能力之一。
 
 先从这里查：
 
-- [Telegram 故障排查](/channels/telegram#troubleshooting)
-- [渠道故障排查](/channels/troubleshooting)
+- [Telegram 故障排查](/zh-CN/channels/telegram#troubleshooting)
+- [渠道故障排查](/zh-CN/channels/troubleshooting)
 
 ### 命令能用，但普通群消息不工作
 
@@ -455,8 +455,8 @@ dig +short api.telegram.org AAAA
 
 然后继续看：
 
-- [Telegram polling or network instability](/channels/telegram#polling-or-network-instability)
-- [Gateway 故障排查](/gateway/troubleshooting)
+- [Telegram polling or network instability](/zh-CN/channels/telegram#polling-or-network-instability)
+- [Gateway 故障排查](/zh-CN/gateway/troubleshooting)
 
 ## 为什么 Telegram 是高价值的第一集成页
 
@@ -502,7 +502,7 @@ Telegram 接通后，最自然的下一组页面是：
 - [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
 - [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 - [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
-- [Telegram 渠道参考](/channels/telegram)
-- [定时任务与周期性自动化](/automation/cron-jobs)
-- [Webhook 自动化](/automation/hooks)
-- [渠道故障排查](/channels/troubleshooting)
+- [Telegram 渠道参考](/zh-CN/channels/telegram)
+- [定时任务与周期性自动化](/zh-CN/automation/cron-jobs)
+- [Webhook 自动化](/zh-CN/automation/hooks)
+- [渠道故障排查](/zh-CN/channels/troubleshooting)
