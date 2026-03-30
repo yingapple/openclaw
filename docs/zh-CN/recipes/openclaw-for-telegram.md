@@ -359,8 +359,10 @@ Telegram topics 是这个渠道最有价值的能力之一。
 
 用这些文档继续：
 
-- [ACP agents](/tools/acp-agents)
+- [ACP agents（英文参考）](/tools/acp-agents)
 - [Telegram 渠道参考](/zh-CN/channels/telegram#forum-topics-and-thread-behavior)
+
+这里刻意保留英文 ACP 文档入口，因为目前 ACP agents 参考页还没有对应的中文版本；如果你的目标是把 Codex、Claude Code 或其他 ACP harness 固定在 Telegram topic 里长期运行，这份英文 runbook 仍然是最直接的操作说明。
 
 ## Telegram 接通后，应该先上线哪一个工作流？
 
