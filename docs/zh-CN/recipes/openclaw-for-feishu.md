@@ -104,13 +104,13 @@ OpenClaw 最擅长的是第三种。
 - 在 reviewer 本来就讨论问题的地方发送 GitHub PR 摘要
 
 <CardGroup cols={3}>
-  <Card title="飞书渠道参考" icon="book-open" href="/channels/feishu">
+  <Card title="飞书渠道参考" icon="book-open" href="/zh-CN/channels/feishu">
     完整的配置、权限、账号与运行时说明。
   </Card>
-  <Card title="定时任务" icon="clock-3" href="/automation/cron-jobs">
+  <Card title="定时任务" icon="clock-3" href="/zh-CN/automation/cron-jobs">
     安排日报、提醒和周期性运营检查。
   </Card>
-  <Card title="Webhook 自动化" icon="webhook" href="/automation/hooks">
+  <Card title="Webhook 自动化" icon="webhook" href="/zh-CN/automation/hooks">
     从部署、GitHub、事故系统等外部事件触发 OpenClaw。
   </Card>
 </CardGroup>
