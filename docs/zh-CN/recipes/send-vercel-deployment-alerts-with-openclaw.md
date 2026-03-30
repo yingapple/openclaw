@@ -67,6 +67,34 @@ OpenClaw 在这里承担的是 Vercel 本身不擅长做好的那部分：
 
 如果你还没有先把聊天渠道接通，建议先做那一步。因为 **Vercel 告警只有在有明确落点时才真正有价值。**
 
+## 什么时候这页应该先于 PR 摘要、创始人日报或 cron 排障
+
+很多人搜到 **Vercel deployment alerts**，并不是真的只想知道 webhook 怎么配。
+
+他们真正想判断的，往往是：
+
+- 我现在最该先压缩的工程信号，是 **部署事件** 还是 **PR 流**？
+- 创始人最在意的是“上线有没有坏”，还是“今天的经营摘要”？
+- 如果自动化本来就不稳定，我是不是应该先停下来修 cron？
+
+可以用这张表快速判断：
+
+| 当你眼前最痛的是... | 应该先做什么 | 为什么 |
+| --- | --- | --- |
+| 生产或 preview 部署很多，但聊天里只有原始 webhook 噪音 | [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw) | 这是最直接把 noisy deploy event 压成可读运维信号的一步。 |
+| 团队真正丢失的是 review handoff，而不是部署上下文 | [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw) | 如果问题发生在 merge 之前，通常先做 PR 摘要更值。 |
+| 创始人更想每天早上看一条“今天该注意什么” | [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders) | 当主要需求是晨间定向，而不是即时工程告警时，日报优先级更高。 |
+| 定时任务本来就偶发不跑、跑错时间、或送达不稳定 | [OpenClaw Cron Not Running](/zh-CN/recipes/openclaw-cron-not-running) | 自动化信任已经坏掉时，先修可靠性，比继续加告警页更值。 |
+| 团队还没有一个稳定的聊天落点来接收机器摘要 | [OpenClaw for Feishu](/zh-CN/recipes/openclaw-for-feishu) / [OpenClaw for Telegram](/zh-CN/recipes/openclaw-for-telegram) | 没有分发表面，部署告警就只是另一个没人看的事件流。 |
+| 买方真正想理解的是完整 founder / operator 工作系统 | [AI Executive Assistant for Founders](/zh-CN/recipes/ai-executive-assistant-for-founders) | 当问题已经上升到产品叙事层，这页更适合承接。 |
+
+一个简单规则：
+
+1. **先做部署告警**，如果 merge 之后“到底有没有顺利上线”才是团队最焦虑的问题。
+2. **先做 PR 摘要**，如果最大噪音发生在 merge 之前的 review 协作。
+3. **先做日报**，如果创始人需要的是固定时间的经营 / 执行摘要。
+4. **先修 cron**，如果你已经开始不信任任何 schedule-driven workflow。
+
 ## 一条好的部署告警应该回答什么
 
 一条像样的 OpenClaw 部署告警，通常应该第一眼就回答下面五件事：
@@ -362,6 +390,51 @@ curl -X POST https://YOUR-GATEWAY-OR-PROXY/hooks/vercel \
 
 如果这条告警已经开始承担真实运维职责，建议从 `channel: "last"` 切到固定的 `channel` + `to` 组合。
 
+## 一个更像 production v1 的上线顺序
+
+如果你现在不是在写文档，而是真的要把这条工作流上线给团队用，建议按这个顺序推进：
+
+### Phase 1：先确定唯一投递目标
+
+先只选一个落点：
+
+- 一个 ops 群
+- 一个 engineering 群
+- 一个 founder / leadership 私聊或小群
+
+不要一开始同时发多个房间。
+**部署告警一旦过吵，第一印象很难修复。**
+
+### Phase 2：只保留最值得打断人的事件
+
+v1 最好只先保留：
+
+- production failed
+- production ready
+- 关键 preview failed
+
+而不是把每一次 preview success 都高频广播出去。
+
+### Phase 3：把“接下来该看什么”写进摘要
+
+一条好的 Vercel 告警，不应该只写状态。
+还应该明确告诉人下一步检查什么，比如：
+
+- 看生产 URL 是否可访问
+- 看数据库 migration 是否成功
+- 看是不是应该回滚
+- 看是不是只影响 preview，不需要升级
+
+### Phase 4：再把它接回 founder brief 或工程摘要
+
+当部署告警本身已经跑稳，再继续把它接入：
+
+- [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
+- [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
+- [AI Executive Assistant for Founders](/zh-CN/recipes/ai-executive-assistant-for-founders)
+
+这时候它就不再只是单点 webhook，而是更完整 operating loop 的信号源。
+
 ## 为什么这页值得进入第一波
 
 在第一波 OpenClaw recipe 页面里，这页值得优先补齐，是因为它正好处在这几个交叉点上：
@@ -370,6 +443,7 @@ curl -X POST https://YOUR-GATEWAY-OR-PROXY/hooks/vercel \
 - **创始人 / 工程团队 use case**
 - **实战型 webhook 接入**
 - **chat-native 的运维工作流**
+- **和 PR 摘要 / founder brief / cron 排障的强比较意图**
 
 它不只是一个部署告警教程。
 它还是一个模板，展示 OpenClaw 如何把 noisy machine events 变成 useful human messages。
