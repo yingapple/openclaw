@@ -233,7 +233,7 @@ OpenClaw 最擅长的是第三种。
 
 具体的页面操作路径和权限要求，请看：
 
-- [飞书接入参考](/channels/feishu#step-1-create-a-feishu-app)
+- [飞书接入参考](/zh-CN/channels/feishu#step-1-create-a-feishu-app)
 
 ### 第 2 步：在 OpenClaw 里添加渠道
 
@@ -310,9 +310,9 @@ openclaw pairing approve feishu <CODE>
 
 配套文档建议先看：
 
-- [定时任务](/automation/cron-jobs)
-- [Standing orders](/automation/standing-orders)
-- [心跳 vs cron](/automation/cron-vs-heartbeat)
+- [定时任务](/zh-CN/automation/cron-jobs)
+- [Standing orders](/zh-CN/automation/standing-orders)
+- [心跳 vs cron](/zh-CN/automation/cron-vs-heartbeat)
 
 ### 2. 真正可读的部署告警
 
@@ -326,8 +326,8 @@ openclaw pairing approve feishu <CODE>
 
 配套文档建议先看：
 
-- [Webhook 自动化](/automation/hooks)
-- [Automation webhook 参考](/automation/webhook)
+- [Webhook 自动化](/zh-CN/automation/hooks)
+- [Automation webhook 参考](/zh-CN/automation/webhook)
 
 ### 3. 在团队聊天里发 GitHub PR 摘要
 
@@ -340,8 +340,8 @@ openclaw pairing approve feishu <CODE>
 
 配套文档建议先看：
 
-- [Webhook 自动化](/automation/hooks)
-- [GitHub CLI + workflows](/cli/hooks)
+- [Webhook 自动化](/zh-CN/automation/hooks)
+- [GitHub CLI + workflows](/zh-CN/cli/hooks)
 
 ### 4. 运营检查和周期性提醒
 
@@ -354,8 +354,8 @@ openclaw pairing approve feishu <CODE>
 
 配套文档建议先看：
 
-- [定时任务](/automation/cron-jobs)
-- [自动化故障排查](/automation/troubleshooting)
+- [定时任务](/zh-CN/automation/cron-jobs)
+- [自动化故障排查](/zh-CN/automation/troubleshooting)
 
 ## 飞书 vs Telegram：应该先从哪个集成开始？
 
@@ -427,7 +427,7 @@ openclaw pairing approve feishu <CODE>
 - 机器人正在汇总大量上下文
 - 用户不想在等待时面对“完全静默”
 
-见：[飞书流式输出配置](/channels/feishu#streaming)
+见：[飞书流式输出配置](/zh-CN/channels/feishu#streaming)
 
 ## 一个真正能上线的飞书 v1 方案
 
@@ -489,7 +489,7 @@ openclaw pairing approve feishu <CODE>
 用这些文档继续：
 
 - [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
-- [定时任务](/automation/cron-jobs)
+- [定时任务](/zh-CN/automation/cron-jobs)
 
 ### 方案 2：把 PR 摘要发进一个工程群
 
@@ -498,7 +498,7 @@ openclaw pairing approve feishu <CODE>
 用这些文档继续：
 
 - [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
-- [Webhook 自动化](/automation/hooks)
+- [Webhook 自动化](/zh-CN/automation/hooks)
 
 ### 方案 3：把部署告警发进一个 ops 群
 
@@ -507,7 +507,7 @@ openclaw pairing approve feishu <CODE>
 用这些文档继续：
 
 - [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
-- [Webhook 自动化](/automation/hooks)
+- [Webhook 自动化](/zh-CN/automation/hooks)
 
 关键在于顺序。
 
@@ -621,9 +621,9 @@ openclaw pairing approve feishu <CODE>
 
 先从这里查：
 
-- [飞书故障排查](/channels/feishu#troubleshooting)
-- [渠道故障排查](/channels/troubleshooting)
-- [Gateway 故障排查](/gateway/troubleshooting)
+- [飞书故障排查](/zh-CN/channels/feishu#troubleshooting)
+- [渠道故障排查](/zh-CN/channels/troubleshooting)
+- [Gateway 故障排查](/zh-CN/gateway/troubleshooting)
 
 ### 私聊能用，但群里不工作
 
@@ -688,7 +688,7 @@ PR 摘要、部署告警和需要多人看到的周期性运营更新，更适�
 - [OpenClaw Daily Executive Brief for Founders](/zh-CN/recipes/openclaw-daily-executive-brief-for-founders)
 - [Send Vercel Deployment Alerts with OpenClaw](/zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw)
 - [GitHub PR Summary Bot with OpenClaw](/zh-CN/recipes/github-pr-summary-bot-with-openclaw)
-- [飞书渠道参考](/channels/feishu)
-- [定时任务与周期性自动化](/automation/cron-jobs)
-- [Webhook 自动化](/automation/hooks)
-- [渠道故障排查](/channels/troubleshooting)
+- [飞书渠道参考](/zh-CN/channels/feishu)
+- [定时任务与周期性自动化](/zh-CN/automation/cron-jobs)
+- [Webhook 自动化](/zh-CN/automation/hooks)
+- [渠道故障排查](/zh-CN/channels/troubleshooting)
