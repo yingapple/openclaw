@@ -337,6 +337,25 @@ They let you separate workflows like:
 
 See [Telegram forum topics and thread behavior](/channels/telegram#forum-topics-and-thread-behavior).
 
+### Using one Telegram topic as a long-running ACP work lane
+
+This is one of the more differentiated Telegram-first setups OpenClaw supports.
+
+If your team wants a dedicated topic for **Codex, Claude Code, or another ACP harness**, Telegram can act like a lightweight operations room:
+
+- one topic for long-running coding sessions
+- a separate topic for deploy alerts or PR summaries
+- a quieter topic for general assistant requests
+
+That split matters because ACP-heavy work tends to generate a different rhythm from normal chat assistance. Keeping it in its own topic makes the session easier to monitor without polluting the rest of the room.
+
+Use these docs next:
+
+- [ACP agents reference](/tools/acp-agents)
+- [Telegram forum topics and thread behavior](/channels/telegram#forum-topics-and-thread-behavior)
+
+If your real goal is **"keep one coding agent attached to one Telegram topic and let the thread persist"**, this is usually the cleanest starting point before you layer on alerts or recurring summaries.
+
 ## A v1 Telegram rollout that actually ships
 
 A lot of Telegram bot guides stop at **"the bot replies in DM"**.
