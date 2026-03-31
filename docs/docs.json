@@ -469,8 +469,16 @@
       "destination": "/recipes/index"
     },
     {
+      "source": "/recipes-hub",
+      "destination": "/recipes/recipes-hub"
+    },
+    {
       "source": "/zh-CN/recipes",
       "destination": "/zh-CN/recipes/index"
+    },
+    {
+      "source": "/zh-CN/recipes-hub",
+      "destination": "/zh-CN/recipes/recipes-hub"
     },
     {
       "source": "/feishu-bot",
@@ -1174,6 +1182,7 @@
                 "group": "Automation",
                 "pages": [
                   "recipes/index",
+                  "recipes/recipes-hub",
                   "recipes/openclaw-for-feishu",
                   "recipes/openclaw-for-telegram",
                   "recipes/send-vercel-deployment-alerts-with-openclaw",
@@ -1837,6 +1846,7 @@
                 "group": "自动化",
                 "pages": [
                   "zh-CN/recipes/index",
+                  "zh-CN/recipes/recipes-hub",
                   "zh-CN/recipes/openclaw-for-feishu",
                   "zh-CN/recipes/openclaw-for-telegram",
                   "zh-CN/recipes/send-vercel-deployment-alerts-with-openclaw",
