@@ -71,6 +71,54 @@ The main idea is simple:
 
 **distribution and reliability usually deserve priority before more ambitious workflow storytelling.**
 
+## Search-intent router: start from the exact query in your head
+
+If you landed here from search, these are usually the real questions behind the click.
+
+| If you searched for something like... | Best first page | Why this page should win first |
+| --- | --- | --- |
+| "OpenClaw recipes" / "OpenClaw workflows" / "what can I build with OpenClaw" | [OpenClaw Recipes](/recipes) | The broad recipes landing page is still the best top-level routing page when you want the full map first. |
+| "OpenClaw for Feishu" / "Lark bot with OpenClaw" | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) | Best first move when the real need is distribution inside the company chat your team already watches. |
+| "OpenClaw for Telegram" / "Telegram AI ops bot" | [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | Best first move when the real need is mobile reachability, groups, or topic-based routing. |
+| "Vercel deployment alerts in chat" / "deployment summary bot" | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | Fastest path from raw shipping events to one readable, actionable alert stream. |
+| "GitHub PR summary bot" / "PR updates in team chat" | [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | Best first move when review traffic is fragmented and ownership keeps getting lost. |
+| "daily executive brief for founders" / "founder daily summary" | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | Strongest first recurring workflow when the buyer wants one useful morning message. |
+| "OpenClaw cron not running" / "cron job not firing" | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Reliability should beat expansion whenever trust in scheduled workflows is already damaged. |
+| "AI executive assistant for founders" / "founder AI chief of staff" | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | Best narrative page when the buyer wants the full founder-facing operating model, not one narrow setup guide. |
+
+## Best first path by team shape
+
+Use this when the question is not just "which page ranks?" but **which starting point will actually create adoption**.
+
+| Team shape | Best first page | Best second page | Why this order works |
+| --- | --- | --- | --- |
+| Feishu/Lark-native team | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) or [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | Feishu gives you the distribution layer first; one recurring brief or PR workflow then proves value inside the chat everyone already watches. |
+| Mobile-first founder or lean technical team | [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) | Telegram solves reachability first; deployment alerts are one of the fastest ways to make the channel immediately useful. |
+| Founder evaluating the whole operating model | [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) | [OpenClaw Daily Executive Brief for Founders](/recipes/openclaw-daily-executive-brief-for-founders) | Start with the narrative when the buyer needs the system story, then narrow into the first habit-forming workflow. |
+| Team already drowning in engineering noise | [Send Vercel Deployment Alerts with OpenClaw](/recipes/send-vercel-deployment-alerts-with-openclaw) or [GitHub PR Summary Bot with OpenClaw](/recipes/github-pr-summary-bot-with-openclaw) | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | Signal compression creates immediate value, but the reliability path needs to exist before the workflow becomes trusted. |
+| Team with unreliable schedules or silent automation | [OpenClaw Cron Not Running](/recipes/openclaw-cron-not-running) | [OpenClaw for Feishu](/recipes/openclaw-for-feishu) or [OpenClaw for Telegram](/recipes/openclaw-for-telegram) | Fixing trust should beat widening distribution when the automation layer is already questionable. |
+
+## FAQ: how to choose the first OpenClaw recipe
+
+### Should I start with Feishu or Telegram?
+
+Start with **Feishu** if the team already lives in Feishu / Lark and you need internal adoption in the company chat.
+Start with **Telegram** if the main requirement is mobile-first reachability, lightweight groups, or topic-based routing.
+
+### Should I launch a founder page first or an engineering alert page first?
+
+Launch the **founder page first** when the buyer wants one recurring orientation loop.
+Launch the **engineering alert page first** when the sharper pain is deploy noise or PR coordination.
+
+### When should cron troubleshooting beat new workflow pages?
+
+Whenever scheduled workflows are already silent, delayed, or inconsistent.
+A broken cron layer will make every future brief, alert, or recap less believable.
+
+### Which page is best if I only want the broad OpenClaw story?
+
+Use [AI Executive Assistant for Founders](/recipes/ai-executive-assistant-for-founders) when you want the broader founder-facing operating model, or [OpenClaw Recipes](/recipes) when you want the full workflow map without committing to one buyer story yet.
+
 ## Where to go next
 
 - Want the broader recipe landing page: [OpenClaw Recipes](/recipes)
